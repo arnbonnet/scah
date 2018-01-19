@@ -1,4 +1,4 @@
-package fr.dta.scah.order;
+package fr.dta.scah.order.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

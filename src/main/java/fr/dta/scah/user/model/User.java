@@ -10,9 +10,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
-import fr.dta.scah.order.Order;
+import fr.dta.scah.order.model.Order;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,11 +35,15 @@ public class User {
 	private String lastname;
 	
 	@NotBlank
+	@Email
 	private String email;
 	
 	private boolean admin = false;
 	
 	@OneToMany(mappedBy="user")
 	private List<Order> orders = new ArrayList<>();
+	
+	@NotBlank
+	private String password;
 	
 }
