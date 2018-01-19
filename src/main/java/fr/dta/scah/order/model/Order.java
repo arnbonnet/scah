@@ -1,4 +1,4 @@
-package fr.dta.scah.order;
+package fr.dta.scah.order.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
