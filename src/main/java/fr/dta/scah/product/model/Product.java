@@ -38,4 +38,7 @@ public class Product {
 	private float price;
 	
 	private int orders;
+	
+	@NotBlank
+	private String category;
 }
