@@ -1,23 +1,22 @@
-<h2>Création d'un produit</h2>
-<form>
+<h2>Cr&eacuteation d'un produit</h2>
+<form x-ng-submit="createProduct()">
 	<label for="name">Nom du produit:</label>
-	<input type="text" class="form-control" id="name">
+	<input type="text" class="form-control" id="name" x-ng-model="product.name" x-ng-bind="product.name">
 	
 	<label for="price">Prix:</label>
-	<input type="text" class="form-control" id="price">
+	<input type="text" class="form-control" id="price"  x-ng-model="product.price" x-ng-bind="product.price">
 	
 	<label for="stock">Stock:</label>
-	<input type="number" class="form-control" id="stock">
+	<input type="number" class="form-control" id="stock"  x-ng-model="product.stock" x-ng-bind="product.stock">
 		
 	<label for="type">Type</label>
-	<select class="form-control" id="type">
-		<option>Livre</option>
-		<option>CD</option>
-		<option>DVD</option>
-	</select><br>
-		
-	<label for="activate">Prix:</label>
-	<input type="checkbox" class="form-control" id="activate">
+	<select class="form-control" id="type" x-ng-model="product.type" x-ng-bind="product.type" x-ng-option="type in types">
+	  <option value="option-1">Option 1</option>
+      <option value="option-2">Option 2</option>
+	</select>
 	
-	<button class="btn" type="submit">Créer</button>
+	<label for="activate">Prix:</label>
+	<input type="checkbox" class="form-control" id="activated"  x-ng-model="product.activated">
+	
+	<button class="btn" type="submit">Cr&eacuteer</button>
 </form>
