@@ -13,3 +13,8 @@
 	height: 250px;
 	width: auto;
 }
+
+/*CSS for createProduct formular*/
+input.ng-dirty.ng-invalid{
+	color: red;
+}
