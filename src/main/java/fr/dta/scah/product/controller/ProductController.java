@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.dta.scah.product.model.Product;
-import fr.dta.scah.service.ProductService;
+import fr.dta.scah.product.service.ProductService;
 
 @RestController
 @RequestMapping("/api/products")

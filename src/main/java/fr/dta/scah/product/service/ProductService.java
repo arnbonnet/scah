@@ -1,4 +1,4 @@
-package fr.dta.scah.service;
+package fr.dta.scah.product.service;
 
 import java.util.List;
 
