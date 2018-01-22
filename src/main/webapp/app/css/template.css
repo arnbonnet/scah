@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+
+.research {
+	background-color: #e0e0eb;
+}
+
+.activateGreen {
+    color:green;
+}
+
+.desactivateRed {
+    color:#ff1a1a;
+}
