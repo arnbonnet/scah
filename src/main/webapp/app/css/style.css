@@ -1,8 +1,7 @@
 .cover {
-	width: 80px;
-	heigth: 111px;
+	width: 100px;
+	heigth: 100px;
 }
-
 .thumbnail:hover {
 	border-color: blue;
 	cursor: pointer;
@@ -11,73 +10,11 @@
 	cursor: pointer;
 }
 .thumbnail {
-	height: 240px;
+	height: 250px;
+	width: auto;
 }
 
-.row {
-	margin-top : 15px;
-	margin-botton : 15px;
-}
-
-.col-centered {
-	float: none;
-	margin: auto;
-}
-
-.caption h3{
-	display: block;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-fixed {
-	position:fixed;
-}
-
-/* Hiding the checkbox, but allowing it to be focused */
-.badgebox
-{
-    opacity: 0;
-}
-
-.badgebox + .badge
-{
-    /* Move the check mark away when unchecked */
-    text-indent: -999999px;
-    /* Makes the badge's width stay the same checked and unchecked */
-	width: 27px;
-}
-
-.badgebox:focus + .badge
-{
-    /* Set something to make the badge looks focused */
-    /* This really depends on the application, in my case it was: */
-    
-    /* Adding a light border */
-    box-shadow: inset 0px 0px 5px;
-    /* Taking the difference out of the padding */
-}
-
-.badgebox:checked + .badge
-{
-    /* Move the check mark back when checked */
-	text-indent: 0;
-}
-
- /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-.row.content {height: 1500px}
-
-/* Set gray background color and 100% height */
-.sidenav {
-  background-color: #f1f1f1;
-  height: 100%;
-}
-
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: 15px;
-  }
-  .row.content {height: auto;} 
+/*CSS for createProduct formular*/
+input.ng-dirty.ng-invalid{
+	color: red;
 }

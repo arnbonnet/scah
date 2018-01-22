@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html x-ng-app="app">
-	<head>
-		<meta charset="UTF-8">
-		<title>Scah e-commerce</title>
-		<meta name="viewport" content="width=device-width, height=device-height"/>
-		<link rel="stylesheet" type="text/css" href="./app/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="./app/css/bootstrap-theme.css">
-		<link rel="stylesheet" type="text/css" href="./app/css/font-awesome.css">
-		<link rel="stylesheet" type="text/css" href="./app/css/style.css">
-		
-		<script src="./app/js/resources/jquery-3.2.1.js"></script>
-	 	<script src="./app/js/resources/bootstrap.js"></script>
-		<script src="./app/js/resources/angular.js"></script>
-		<script src="./app/js/resources/angular-route.js"></script>
-		
-		<script src="./app/js/app.js"></script>
-	 	
-	 	<script src="./app/js/controller/ListProductCtrl.js"></script>
-	
-	</head>
-	<body class="container-fluid">
-		<h1> Scah </h1>
-		<div x-ng-view></div>
-		
-		 
-	</body>
-	
+
+<head>
+<meta charset="UTF-8">
+<title>Scah e-commerce</title>
+<meta name="viewport" content="width=device-width, height=device-height" />
+<link rel="stylesheet" type="text/css" href="./app/css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="./app/css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="./app/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="./app/css/style.css">
+<link rel="stylesheet" type="text/css" href="./app/css/template.css">
+
+<script src="./app/js/resources/jquery-3.2.1.js"></script>
+<script src="./app/js/resources/bootstrap.js"></script>
+<script src="./app/js/resources/angular.js"></script>
+<script src="./app/js/resources/angular-route.js"></script>
+
+
+<script src="./app/js/app.js"></script>
+<script src="./app/js/controller/ProductCtrl.js"></script>
+<script src="./app/js/controller/ListProductCtrl.js"></script>
+<script src="./app/js/controller/ArrayProductsAdminController.js"></script>
+<script src="./app/js/service/ProductService.js"></script>
+
+</head>
+<body class="container">
+
+
+	<h1>Scah</h1>
+
+	<div class="btn-group btn-group-justified">
+		<a href="#" class="btn btn-primary">Livre</a> <a href="#"
+			class="btn btn-primary">Jeux vid&eacute;o</a> <a href="#"
+			class="btn btn-primary">DVD</a> <a href="#" class="btn btn-primary">Musique</a>
+	</div>
+
+	<div x-ng-view></div>
+
+</body>
 </html>
