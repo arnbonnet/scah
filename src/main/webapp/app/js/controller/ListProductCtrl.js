@@ -11,4 +11,9 @@ angular.module('app').controller('ListProductCtrl', function($scope, ProductServ
 		}
 	);
 	
+	$scope.detailProduct = function(product) {
+		console.log(product);
+		$scope.data = product;
+		ProductService.detailProduct(product);
+	};
 });
