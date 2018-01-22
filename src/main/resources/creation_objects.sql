@@ -1,5 +1,5 @@
 INSERT INTO product (id, activated, description, image, orders, price, stock, title, category)
- values
+VALUES
  
  
  (nextval('seq_product'), true, 'La vie de l''enfance de Cerise, de Groupama','carnet-cerise', 0, 15.90, 4, 'Les carnets de Cerise', 'Livre'),
