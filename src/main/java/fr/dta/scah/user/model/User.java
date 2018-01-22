@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -13,6 +14,8 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import fr.dta.scah.order.model.Order;
 import lombok.Getter;
@@ -43,7 +46,8 @@ public class User implements Serializable {
 	
 	private boolean admin = false;
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Order> orders = new ArrayList<>();
 	
 	@NotBlank
