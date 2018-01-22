@@ -1,5 +1,6 @@
 package fr.dta.scah.order.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +27,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @SequenceGenerator(name = "seq_order", sequenceName = "seq_order", initialValue = 1, allocationSize = 1)
-public class Order {	
-	
+public class Order implements Serializable {	
+
+	private static final long serialVersionUID = 857227294723514986L;
+
 	@Id
 	@GeneratedValue(generator = "seq_order")
 	private Long id;
@@ -46,5 +49,53 @@ public class Order {
 	
 	@OneToMany(mappedBy="order")
 	private List<ProductQuantity> quantityProducts = new ArrayList<>();
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public float getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(float totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public String getOrderNumber() {
+		return orderNumber;
+	}
+
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<ProductQuantity> getQuantityProducts() {
+		return quantityProducts;
+	}
+
+	public void setQuantityProducts(List<ProductQuantity> quantityProducts) {
+		this.quantityProducts = quantityProducts;
+	}
 	
 }
