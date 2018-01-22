@@ -7,6 +7,8 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService)
 		return ProductService.addProduct($scope.data.product).then(function(response){
 			console.log('product creation success');
 			return response.data;
+		}, function(response){
+			console.log("error creating product" + response.data)
 		});
 	}
 });

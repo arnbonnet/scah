@@ -12,16 +12,18 @@ angular.module('app').factory('ProductService', ['$http', function($http) {
 		return promiseListProduct;
 	}
 	
-	return {
-		getAllProduct : getAllProductBody
-	}
-	
-	var addProduct = function(product){
-		var promiseAddProduct = $http.post(host +':' + port + '/products', product, {});
+	var addProductBody = function(product){
+		var promiseAddProduct = $http.post(host +':' + port + '/scah/api/products', product, {});
 		promiseAddProduct.then(function(response){
 			return response.data;
 		});
 		return promiseAddProduct;
 	}
+	
+	return {
+		getAllProduct : getAllProductBody,
+		addProduct : addProductBody
+	}
+	
 }]);
 
