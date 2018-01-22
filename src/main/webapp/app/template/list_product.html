@@ -1,11 +1,15 @@
- <div class="col-sm-9"> 
-	<div class="col-sm-6 col-md-3" >
-		<span class="thumbnail">
-			<img ng-src="https://static.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg" class="cover">
-			<div class="caption">
-				<h3 class="text-center" ng-bind="product"></h3>
-				tjgjkyrkr
+<div>
+	<div class="row"> 
+		<div class="col-sm-12"> 
+			<div class="col-sm-6 col-md-3" data-ng-repeat="product in ListProduct">
+				<span class="thumbnail">
+					<h3 class="text-right" >{{product.price}} &euro;</h3>
+					<img data-ng-src="https://i.pinimg.com/originals/28/aa/3d/28aa3d099a1a50885235e5e9cc4965d2.jpg" class="cover">
+					<div class="caption">
+						<h3 class="text-center" data-ng-bind="product.title"></h3>
+					</div>
+				</span>
 			</div>
-		</span>
+		</div>
 	</div>
 </div>
