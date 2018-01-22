@@ -6,33 +6,39 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 	var promiseProducts = $http.get(host + ':' + port + '/scah/api/products');
 	var getAllProductBody = function() {
 		var promiseListProduct = promiseProducts.then(function(response) {
-			console.log(response.data);
 			return response.data;
 		});
 		return promiseListProduct;
-	}
+	};
 	
-	var productPromises = {};
-	var getOneProductBody = function(id) {
-		if(!productPromises[id]) {
-			productPromises[id] = $http.get(host + ':' + port + '/scah/api/products/search/'+id);
-		}
-		var promiseProduct = productPromises[id].then(function(response) {
-			console.log(reponse);
-			return reponse;
+	var detailProductBody = function(product) {
+		$location.path('/'+ product.id);
+	};
+	
+	var addProductBody = function(product){
+		var promiseAddProduct = $http.post(host +':' + port + '/scah/api/products', product, {});
+		promiseAddProduct.then(function(response){
+			return response.data;
 		});
-		return promiseProduct;
-	}
+		return promiseAddProduct;
+	};
 	
-	var detailProductBody = function(response) {
-		console.log(response.id);
-		$location.path('/'+ response.id);
+	var promise = {};
+	var getOneProductBody = function(id) {
+		if(!promise[id]) {
+			promise[id] = $http.get(host + ':' + port +'/scah/api/products/search/'+id);
+		}
+		var prom2 = promise[id].then(function(reponse) {
+			return reponse.data;
+		});
+		return prom2;
 	};
 	
 	return {
 		getAllProduct : getAllProductBody,
+		detailProduct : detailProductBody,
+		addProduct : addProductBody,
 		getOneProduct : getOneProductBody,
-		detailProduct : detailProductBody
 	}
-	
 }]);
+

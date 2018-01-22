@@ -26,6 +26,10 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 	
+	public void addProduct(Product product) {
+		productRepository.save(product);
+	}
+	
 	public List<Product> getByTitle(String title) {
 		System.out.println(title);
 		title = "%" + title + "%";
