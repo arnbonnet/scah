@@ -7,19 +7,22 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService){
 	$scope.activate = false;
 	$scope.ListProduct = [];
 	$scope.check = [];
-	$scope.state = false;
+	$scope.switche;
 	
 	
+	// fonction qui affiche la recherche avancée
     $scope.showAdvancedResearch = function() {
         $scope.advancedResearch = !$scope.advancedResearch;
     }
     
+    //récupère l'ensemble des produits via la bdd
     ProductService.getAllProduct().then(
     		function(data) {
     			$scope.ListProduct = data;
     			for(var key in $scope.ListProduct){
     				$scope.check[key]=false;
     			}
+    			console.log($scope.check);
     			
     		},
     		function() {
@@ -27,14 +30,19 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService){
     		}
     	);
     
-    var states = function(){
-    	console.log('state');
-    	for(var key in $scope.check){
-    		if ($scope.check[key]){
-    			$scope.state = true;
-    		}
-    		$scope.state = false;
+    //gère l'affichage des deux boutons suppresion et activation.désativation
+    $scope.switche = function(id){
+    	$scope.check[id] = !$scope.check[id];
     	}
+    
+    $scope.show = function(){
+    	return $scope.check.includes(true);
     }
+    
 
+    //gestion de la modification
+    
+    
+    
+    //
 });
