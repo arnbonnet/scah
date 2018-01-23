@@ -19,16 +19,9 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService)
 			$scope.ListProduct = data;
 		},
 		function() {
-			console.log("Error ListProductCtrl - getAllProduct");
+			console.log("Error ProductCtrl - getAllProduct");
 		}
 	);
 	
-	
-	
-//	$scope.detailProduct = function(product) {
-//		console.log(product.id);
-//		console.log(product.title);
-//		
-//		ProductService.detailProduct(product);
-//	};
+
 });
