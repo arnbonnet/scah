@@ -22,7 +22,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService){
     			for(var key in $scope.ListProduct){
     				$scope.check[key]=false;
     			}
-    			console.log($scope.check);
+    			
     			
     		},
     		function() {
