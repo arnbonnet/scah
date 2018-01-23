@@ -22,20 +22,15 @@
 		<script src="./app/js/controller/DetailProductCtrl.js"></script>
 		<script src="./app/js/controller/ArrayProductsAdminController.js"></script>
 		<script src="./app/js/controller/ConnectionRegistrationCtrl.js"></script>
-		
+		<script src="./app/js/controller/HeaderCtrl.js"></script>
 		<script src="./app/js/service/ProductService.js"></script>
+		<script src="./app/js/service/UserService.js"></script>
 	</head>
 	
-	<body class="container">
-		<h1>Scah</h1>
-	
-		<div class="btn-group btn-group-justified">
-			<a href="#" class="btn btn-primary">Livre</a> <a href="#"
-				class="btn btn-primary">Jeux vid&eacute;o</a> <a href="#"
-				class="btn btn-primary">DVD</a> <a href="#" class="btn btn-primary">Musique</a>
-		</div>
-	
-		<div x-ng-view></div>
+	<body>
+		<ng-include src="'./app/template/header.html'"></ng-include>
+		
+		<div x-ng-view class="container content"></div>
 	
 	</body>
 </html>
