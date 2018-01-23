@@ -1,4 +1,4 @@
-angular.module('app').controller('ProductCtrl', function($scope, ProductService) {
+angular.module('app').controller('ProductCtrl', function($scope, ProductService, $routeParams) {
 	$scope.data = {
 		product : {},
 	};
@@ -12,7 +12,7 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService)
 			console.log("error creating product" + response.data)
 		});
 	};
-	
+		
 	$scope.ListProducts = [];
 	ProductService.getAllProduct().then(
 		function(data) {

@@ -41,4 +41,8 @@ public class ProductService {
 	public Product getById(Long id) {
 		return productRepository.findById(id);
 	}
+
+	public void editProduct(Product product) {
+		productRepository.save(product);
+	}
 }

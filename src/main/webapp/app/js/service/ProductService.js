@@ -34,11 +34,21 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 		return prom2;
 	};
 	
+	var editProductBody = function(product){
+		var promiseEditProduct = $http.put(host +':' + port + '/scah/api/products', product, {});
+		promiseEditProduct.then(function(response){
+			return response.data;
+		});
+		return promiseEditProduct;
+	};
+	
+	
 	return {
 		getAllProduct : getAllProductBody,
 		detailProduct : detailProductBody,
 		addProduct : addProductBody,
 		getOneProduct : getOneProductBody,
+		editProduct : editProductBody
 	}
 }]);
 

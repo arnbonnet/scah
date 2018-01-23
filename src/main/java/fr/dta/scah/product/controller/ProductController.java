@@ -31,6 +31,11 @@ public class ProductController {
 		productService.addProduct(product);
 	}
 	
+	@RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+	public void editProducts(@RequestBody Product product) {
+		productService.editProduct(product);
+	}
+	
 	@RequestMapping(value="search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> getByTitle(@RequestParam String title) {
 		return productService.getByTitle(title);

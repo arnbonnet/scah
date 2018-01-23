@@ -1,0 +1,46 @@
+<div class="container">
+	<h2>Modification d'un produit</h2>
+	<div class="row">
+		<form name="ProductForm"  class="col-md-4 col_md_offset-4" novalidate>
+			<label for="name">Titre du produit:</label>
+			<input type="text" class="form-control" id="name" x-ng-model="data.product.title" x-ng-bind="data.product.title" required>
+			
+			<label for="description">Description:</label>
+			<textarea  class="form-control" id="description" x-ng-model="data.product.description" x-ng-bind="data.product.description" required></textarea>
+			
+			<label for="stock">Stock:</label>
+			<input type="number" class="form-control" id="stock" x_ng-min="0" x-ng-model="data.product.stock" x-ng-bind="data.product.stock" required>
+				
+			
+			<label for="price">Prix:</label>
+			<input type="number" class="form-control" id="price" x_ng-min="0" x-ng-max="1000" step=".01" x-ng-model="data.product.price" x-ng-bind="data.product.price" required>
+			
+			<label for="type">Type</label>
+			<select class="form-control" id="type" x-ng-model="data.product.category" required>
+			  <!-- <option ng-repeat="category in data.categories" value="{{category.id}}">{{category.name}}</option> -->
+				<option value="Livre">Livre</option>
+				<option value="DVD">DVD</option>
+				<option value="Jeux Vid&eacuteos">Jeux Vid&eacuteos</option>
+				<option value="Musique">Musique</option>
+			</select>
+			
+			<div>
+				<label for="activated">Activate:</label>
+				<input type="checkbox" class="" id="activated"  x-ng-model="product.activated" x-ng-bind="product.activated">
+			</div>
+				<br />
+			
+			<label for="image">Image link:</label>
+			<input type="text" class="form-control" id="image" x-ng-model="data.product.image" x-ng-bind="data.product.image" required>
+			
+			<br />
+			<div ng-show="ProductForm.price.$invalid">
+				Invalid:
+				<span ng-show="ProductForm.price.$error">This is not a valid price.</span>
+			</div>
+			
+			<button class="btn btn-primary col-md-3 col-md-offset-6" x-ng-click="editProduct()" x-ng-disabled="ProductForm.$invalid || isUnchanged(product)">Modifier</button>
+			<a href="#!" id="cancel" name="cancel" class="btn btn-default col-md-3">Cancel</a>
+		</form>
+	</div>
+</div>
