@@ -13,6 +13,7 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService)
 		});
 	};
 	
+ 
 	$scope.ListProducts = [];
 	ProductService.getAllProduct().then(
 		function(data) {

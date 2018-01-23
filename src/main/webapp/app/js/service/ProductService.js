@@ -11,10 +11,6 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 		return promiseListProduct;
 	};
 	
-	var detailProductBody = function(product) {
-		$location.path('/'+ product.id);
-	};
-	
 	var addProductBody = function(product){
 		var promiseAddProduct = $http.post(host +':' + port + '/scah/api/products', product, {});
 		promiseAddProduct.then(function(response){
@@ -36,7 +32,6 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 	
 	return {
 		getAllProduct : getAllProductBody,
-		detailProduct : detailProductBody,
 		addProduct : addProductBody,
 		getOneProduct : getOneProductBody,
 	}
