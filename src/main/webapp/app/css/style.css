@@ -2,8 +2,9 @@
 	width: 100px;
 	heigth: 100px;
 }
+
 .thumbnail:hover {
-	border-color: blue;
+	border-color: steelblue;
 	cursor: pointer;
 }
 .flyover:hover {
@@ -21,13 +22,48 @@
 .price{
     position: absolute;
     margin: 0px;
+    margin-left: -10px;
     background-color: steelblue;
     color: white;
-    padding: 5px
+    padding: 5px;
+    border-radius: 0 10px 10px 0;
+}
 }
 .row {
 	margin-top : 15px;
 	margin-botton : 15px;
+}
+
+.imageProduct{
+	width: 100%;
+	heigth: 100%;
+}
+
+.productDetail {
+	margin-top: 50px;
+}
+
+.enRupture {
+	background: #D1342F;
+	color : white;
+	margin: 0 200px 0 200px;
+    padding: 10px 0 10px 0;
+    font-size: 25px;
+    border-radius: 10px;
+}
+.productQuantityInput {
+	width: 66px;
+	margin-right : 20px;
+}
+
+.quantityTitle {
+	padding-left: 0px;
+    margin: 8px 0 8px 0;
+    width: 65px;
+}
+
+.productDescption {
+	margin-top: 60px;
 }
 
 .col-centered {
