@@ -1,4 +1,4 @@
-package fr.dta.scah.service;
+package fr.dta.scah.product.service;
 
 import java.util.List;
 
@@ -24,6 +24,10 @@ public class ProductService {
 	
 	public List<Product> findAll() {
 		return productRepository.findAll();
+	}
+	
+	public void addProduct(Product product) {
+		productRepository.save(product);
 	}
 	
 	public List<Product> getByTitle(String title) {
