@@ -4,14 +4,21 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+<<<<<<< HEAD
 import org.springframework.security.access.prepost.PreAuthorize;
+=======
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+>>>>>>> branch 'master' of https://github.com/arnbonnet/scah.git
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import fr.dta.scah.exception.StorageFileNotFoundException;
 import fr.dta.scah.product.model.Product;
 import fr.dta.scah.product.service.ProductService;
 
@@ -55,4 +62,14 @@ public class ProductController {
 	public void remove(@PathVariable Long id) {
 		productService.remove(id);
 	}
+
+	@RequestMapping(value="{id}/upload", method = RequestMethod.POST)
+    public void handleFileUpload(@RequestParam MultipartFile file, @PathVariable long id) {
+		productService.store(id, file);
+    }
+
+	@ExceptionHandler(StorageFileNotFoundException.class)
+    public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
+        return ResponseEntity.notFound().build();
+    }
 }

@@ -21,6 +21,10 @@ app.config(function($routeProvider) {
 		templateUrl:'./app/template/detail_product.html',
 		controller:'DetailProductCtrl'
 	})
+	.when('/connection',{
+		templateUrl:'./app/template/connection_registration.html',
+		controller:'ConnectionRegistrationCtrl'
+	})
 	.otherwise({
 		redirectTo:'/'
 	})

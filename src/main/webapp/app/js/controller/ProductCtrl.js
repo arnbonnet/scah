@@ -12,7 +12,7 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 			console.log("error creating product" + response.data)
 		});
 	};
-		
+
 	$scope.ListProducts = [];
 	ProductService.getAllProduct().then(
 		function(data) {
@@ -22,6 +22,4 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 			console.log("Error ProductCtrl - getAllProduct");
 		}
 	);
-	
-
 });
