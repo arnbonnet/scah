@@ -1,4 +1,3 @@
-@charset "ISO-8859-1";
 
 .research {
 	background-color: #e0e0eb;
@@ -10,4 +9,8 @@
 
 .desactivateRed {
     color:#ff1a1a;
+}
+
+.euro:after{
+	content: '\&euro;';
 }
