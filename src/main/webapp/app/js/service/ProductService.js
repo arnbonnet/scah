@@ -1,14 +1,19 @@
 angular.module('app').factory('ProductService', ['$http', '$location', function($http, $location) {
+		
+	var promiseProducts = $http.get('/scah/api/products').then(function(response) {
+		return response.data;
+	});
 	
-	var host = 'http://localhost' ;
-	var port = '8080';
-	
-	var promiseProducts = $http.get(host + ':' + port + '/scah/api/products');
-	var getAllProductBody = function() {
-		var promiseListProduct = promiseProducts.then(function(response) {
+	var reloadBody = function(){
+		console.log('relaod function')
+		promiseProducts = $http.get('/scah/api/products').then(function(response) {
 			return response.data;
 		});
-		return promiseListProduct;
+		return promiseProducts;
+	}
+	
+	var getAllProductBody = function() {
+		return promiseProducts;
 	};
 	
 	var detailProductBody = function(product) {
@@ -16,7 +21,7 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 	};
 	
 	var addProductBody = function(product){
-		var promiseAddProduct = $http.post(host +':' + port + '/scah/api/products', product, {});
+		var promiseAddProduct = $http.post('/scah/api/products', product, {});
 		promiseAddProduct.then(function(response){
 			return response.data;
 		});
@@ -26,7 +31,7 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 	var promise = {};
 	var getOneProductBody = function(id) {
 		if(!promise[id]) {
-			promise[id] = $http.get(host + ':' + port +'/scah/api/products/search/'+id);
+			promise[id] = $http.get('/scah/api/products/search/'+id);
 		}
 		var prom2 = promise[id].then(function(reponse) {
 			return reponse.data;
@@ -35,11 +40,19 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 	};
 	
 	var editProductBody = function(product){
-		var promiseEditProduct = $http.put(host +':' + port + '/scah/api/products', product, {});
+		var promiseEditProduct = $http.put('/scah/api/products', product, {});
 		promiseEditProduct.then(function(response){
 			return response.data;
 		});
 		return promiseEditProduct;
+	};
+	
+	var removeProductBody = function(id){
+		var promiseRemoveProduct = $http.delete('/scah/api/products/' + id);
+		promiseRemoveProduct.then(function(response){
+			return response.data;
+		});
+		return promiseRemoveProduct;
 	};
 	
 	
@@ -48,7 +61,9 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 		detailProduct : detailProductBody,
 		addProduct : addProductBody,
 		getOneProduct : getOneProductBody,
-		editProduct : editProductBody
+		editProduct : editProductBody,
+		removeProduct : removeProductBody,
+		reload : reloadBody
 	}
 }]);
 

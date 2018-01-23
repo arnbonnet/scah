@@ -67,4 +67,8 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 		
 		return searchResult;
 	}
+
+	public void remove(Long id) {
+		productRepository.delete(id);
+	}
 }

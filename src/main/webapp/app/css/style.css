@@ -81,7 +81,7 @@ fixed {
 	position:fixed;
 }
 /*CSS for createProduct formular*/
-ProductForm.input.ng-dirty.ng-invalid{
+createProductForm.input.ng-dirty.ng-invalid{
 	color: red;
 }
 /* CSS Remove thumbnail link effect in list product page */

@@ -50,4 +50,9 @@ public class ProductController {
 	public Product getById(@PathVariable Long id) {
 		return productService.getById(id);
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public void remove(@PathVariable Long id) {
+		productService.remove(id);
+	}
 }
