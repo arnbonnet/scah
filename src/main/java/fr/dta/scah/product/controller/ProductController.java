@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,7 @@ import fr.dta.scah.product.service.ProductService;
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-	
+
 	@Autowired
 	ProductService productService;
 
@@ -25,24 +26,27 @@ public class ProductController {
 	public List<Product> getProducts() {
 		return productService.findAll();
 	}
-	
+
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void addProducts(@RequestBody Product product) {
 		productService.addProduct(product);
 	}
 	
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void editProducts(@RequestBody Product product) {
 		productService.editProduct(product);
 	}
 	
-	@RequestMapping(value="search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Product> getByTitle(@RequestParam String title) {
-		return productService.getByTitle(title);
-		
+	@RequestMapping(value = "search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Product> getByCriteria(@RequestParam(required = false) String title,
+			@RequestParam(required = false) String category, @RequestParam(required = false) Integer stock,
+			@RequestParam(required = false) Float price, @RequestParam(required = false) Integer orders) {
+		return productService.findByCriteria(title, category, stock, price, orders);
 	}
-	
-	@RequestMapping(value="search/{id}", method = RequestMethod.GET)
+
+	@RequestMapping(value = "search/{id}", method = RequestMethod.GET)
 	public Product getById(@PathVariable Long id) {
 		return productService.getById(id);
 	}
