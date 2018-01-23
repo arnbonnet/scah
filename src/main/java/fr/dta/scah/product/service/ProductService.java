@@ -7,15 +7,20 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import fr.dta.scah.AbstractRepository;
 import fr.dta.scah.product.model.Product;
 import fr.dta.scah.product.repository.ProductRepository;
+import fr.dta.scah.product.repository.ProductRepositoryCustom;
 
 @Service
 @Transactional
-public class ProductService {
+public class ProductService extends AbstractRepository<Product> implements ProductRepositoryCustom {
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -30,15 +35,33 @@ public class ProductService {
 		productRepository.save(product);
 	}
 	
-	public List<Product> getByTitle(String title) {
-		System.out.println(title);
-		title = "%" + title + "%";
-		TypedQuery<Product> query = em.createQuery("select p from Product p where p.title like :productTitle", Product.class)
-				.setParameter("productTitle", title);
-		return query.getResultList();
-	}
-	
 	public Product getById(Long id) {
 		return productRepository.findById(id);
+	}
+
+	@Override
+	public List<Product> findByCriteria(String title, String category, Integer stock, Float price, Integer orders) {
+		
+		Criteria crit = getSession().createCriteria(Product.class);
+		
+		if (!StringUtils.isEmpty(title)) {
+			crit.add(Restrictions.like("title", "%"+title+"%"));
+		}
+		if (!StringUtils.isEmpty(category)) {
+			crit.add(Restrictions.eq("category", category));
+		}
+		if (stock != null) {
+			crit.add(Restrictions.eq("stock", stock));
+		}
+		if (price != null) {
+			crit.add(Restrictions.eq("price", price));
+		}
+		if (orders != null) {
+			crit.add(Restrictions.eq("orders", orders));
+		}
+		
+		List<Product> searchResult = crit.list();
+		
+		return searchResult;
 	}
 }

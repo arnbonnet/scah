@@ -17,7 +17,7 @@ import fr.dta.scah.product.service.ProductService;
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-	
+
 	@Autowired
 	ProductService productService;
 
@@ -25,19 +25,20 @@ public class ProductController {
 	public List<Product> getProducts() {
 		return productService.findAll();
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void addProducts(@RequestBody Product product) {
 		productService.addProduct(product);
 	}
-	
-	@RequestMapping(value="search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Product> getByTitle(@RequestParam String title) {
-		return productService.getByTitle(title);
-		
+
+	@RequestMapping(value = "search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Product> getByCriteria(@RequestParam(required = false) String title,
+			@RequestParam(required = false) String category, @RequestParam(required = false) Integer stock,
+			@RequestParam(required = false) Float price, @RequestParam(required = false) Integer orders) {
+		return productService.findByCriteria(title, category, stock, price, orders);
 	}
-	
-	@RequestMapping(value="search/{id}", method = RequestMethod.GET)
+
+	@RequestMapping(value = "search/{id}", method = RequestMethod.GET)
 	public Product getById(@PathVariable Long id) {
 		return productService.getById(id);
 	}

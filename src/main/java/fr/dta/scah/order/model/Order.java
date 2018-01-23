@@ -16,6 +16,11 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import fr.dta.scah.user.model.User;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,6 +39,8 @@ public class Order implements Serializable {
 	private Long id;
 	
 	@NotNull
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
 	private LocalDate date;
 	
 	@NotNull
