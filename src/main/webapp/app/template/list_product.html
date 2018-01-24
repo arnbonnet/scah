@@ -11,7 +11,7 @@
 			<a href="#!/product/{{product.id}}" class="nounderline">
 				<span class="thumbnail">
 					<h3 class="pull-left price" >{{product.price | currency : '' : 2}} &euro;</h3>
-					<img data-ng-src="https://i.pinimg.com/originals/28/aa/3d/28aa3d099a1a50885235e5e9cc4965d2.jpg" class=" cover">
+					<img data-ng-src="app/images/{{product.image}}" class=" cover">
 					<div class="caption">
 						<h4 class="text-center">{{product.title}}</h4>
 					</div>
