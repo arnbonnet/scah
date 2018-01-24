@@ -5,7 +5,6 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 	
 	$scope.createProduct = function(){
 		console.log($scope.data.product);
-		ProductService.uploadFile($scope.data.product.image);
 		return ProductService.addProduct($scope.data.product).then(function(response){
 			console.log('product creation success');
 			return response.data;
@@ -30,6 +29,8 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 	function readURL(input) {
 		if (input.files && input.files[0]) {
 		    var reader = new FileReader();
+		    $scope.data.product.image = input.files[0].name;
+		    console.log($scope.data.product.image);
 
 		    reader.onload = function(e) {
 		      $('#img').attr('src', e.target.result);
@@ -40,6 +41,7 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 		}
 
 		$("#imgImport").change(function() {
+			ProductService.uploadFile($("#imgImport"));
 		  readURL(this);
 		});
 	
