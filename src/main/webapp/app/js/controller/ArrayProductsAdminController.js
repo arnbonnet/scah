@@ -9,13 +9,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 	$scope.check = [];
 	$scope.switche;
 	
-	function initData(data){
-		$scope.ListProduct = data;
-		for(var key in $scope.ListProduct){
-			$scope.check[key]=false;
-		}
-		console.log($scope.check);
-	}
+	
 	
 	
 	// fonction qui affiche la recherche avancée
@@ -34,6 +28,14 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     	);
     
     //gère l'affichage des deux boutons suppresion et activation.désativation
+    function initData(data){
+		$scope.ListProduct = data;
+		for(var key in $scope.ListProduct){
+			$scope.check[key]=false;
+		}
+		console.log($scope.check);
+	}
+    
     $scope.switche = function(id){
     	$scope.check[id] = !$scope.check[id];
     	}
@@ -42,7 +44,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     	return $scope.check.includes(true);
     }
     
-    
+    //suppression des produits
     function remove(id){
     	ProductService.removeProduct(id)
 		.then(function(response){
