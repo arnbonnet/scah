@@ -9,15 +9,6 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 	$scope.check = [];
 	$scope.switche;
 	
-	function initData(data){
-		$scope.ListProduct = data;
-		for(var key in $scope.ListProduct){
-			$scope.check[key]=false;
-		}
-		console.log($scope.check);
-	}
-	
-	
 	// fonction qui affiche la recherche avancée
     $scope.showAdvancedResearch = function() {
         $scope.advancedResearch = !$scope.advancedResearch;
@@ -25,15 +16,23 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     
     //récupère l'ensemble des produits via la bdd
     ProductService.getAllProduct().then(
-    		function(data) {
-    			initData(data);
-    		},
-    		function() {
-    			console.log("Error ListProductCtrl - getAllProduct");
-    		}
-    	);
+		function(data) {
+			initData(data);
+		},
+		function() {
+			console.log("Error ListProductCtrl - getAllProduct");
+		}
+	);
     
     //gère l'affichage des deux boutons suppresion et activation.désativation
+    function initData(data){
+		$scope.ListProduct = data;
+		for(var key in $scope.ListProduct){
+			$scope.check[key]=false;
+		}
+		console.log($scope.check);
+	}
+    
     $scope.switche = function(id){
     	$scope.check[id] = !$scope.check[id];
     	}
@@ -42,7 +41,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     	return $scope.check.includes(true);
     }
     
-    
+    //suppression des produits
     function remove(id){
     	ProductService.removeProduct(id)
 		.then(function(response){
@@ -56,6 +55,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 		});
     }
 	
+    // Call modal for product deletion confirmation
     $scope.callConfirmDelete = function(item){
     	var modalInstance = $uibModal.open({
     	      templateUrl: 'app/template/modal-confirm-delete.html',
@@ -66,16 +66,27 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     	      }
    	    });
     	
+    	//Handle modal response if confirme or cancel
     	modalInstance.result.then(function () {
     		remove(item.id);
     	}, function () {
 //    		 console.log('NOK');
-    	});
-    	
+    	}); 	
     }
     
     $scope.removeProduct = function(id){
     	console.log(id);
     	remove(id);
+    }
+    
+    // change product status if admin click on button activer/désactiver
+    $scope.productStatus = function(product){
+    	product.activated = !product.activated;
+		return ProductService.editProduct(product).then(function(response){
+			console.log('product status change success');
+			return response.data;
+		}, function(response){
+			console.log("error status change product" + response.data)
+		});
     }
 });

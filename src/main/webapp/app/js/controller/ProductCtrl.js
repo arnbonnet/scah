@@ -22,4 +22,25 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 			console.log("Error ProductCtrl - getAllProduct");
 		}
 	);
+
+	//fonction qui permet l'affichage de l'image uploader en prévisualisation
+	//attention c'est en jquery
+	
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+		    var reader = new FileReader();
+
+		    reader.onload = function(e) {
+		      $('#img').attr('src', e.target.result);
+		    }
+
+		    reader.readAsDataURL(input.files[0]);
+		  }
+		}
+
+		$("#imgImport").change(function() {
+		  readURL(this);
+		});
+	
+
 });
