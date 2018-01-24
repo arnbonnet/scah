@@ -53,9 +53,14 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 	
 	//upload des images
 	var uploadFileBody = function(file){
-		var promiseUploadFile = $http.post('/scah/api/products/upload', file);
+        var formdata = new FormData();
+        formdata.append('file', file);
+		var promiseUploadFile = $http.post('/scah/api/products/upload', formdata,  {headers: {'Content-Type': undefined}});
 		promiseUploadFile.then(function(response){
+			console.log(response);
 			return response.data;
+		}, function(response){
+			console.log('ERR', response);
 		});
 		return promiseUploadFile;
 	}

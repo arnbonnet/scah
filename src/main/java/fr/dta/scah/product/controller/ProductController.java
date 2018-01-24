@@ -63,7 +63,7 @@ public class ProductController {
 	@RequestMapping(value="upload", method = RequestMethod.POST)
     public String handleFileUpload(@RequestParam MultipartFile file) {
 		productService.store(file);
-		return file.getOriginalFilename();
+		return "{\"name\":\""+file.getOriginalFilename()+"\"}";
     }
 
 	//gestion des exceptions du aux erreurs de l'upload des images

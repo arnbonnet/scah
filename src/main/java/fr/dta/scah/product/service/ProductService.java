@@ -82,9 +82,11 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 		String filename = StringUtils.cleanPath(file.getOriginalFilename());
 
 		try {
-			File convFile = new File(".\\src\\main\\webapp\\app\\images\\" + file.getOriginalFilename());
+			File convFile = new File(".\\src\\main\\webapp\\app\\images\\" + filename);
 		    convFile.getParentFile().mkdirs();
-		    convFile.createNewFile();
+		    if(!convFile.createNewFile()) {
+				throw new StorageException("Failed to create file " + convFile.getAbsolutePath() );
+		    }
 		    
 		    FileOutputStream fos = new FileOutputStream(convFile); 
 		    fos.write(file.getBytes());
@@ -99,12 +101,11 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 				throw new StorageException(
 						"Cannot store file with relative path outside current directory " + filename);
 			}
+			System.out.println("Create file " + convFile.getAbsolutePath());
 			return true;
 			
 		} catch (IOException e) {
 			throw new StorageException("Failed to store file " + filename, e);
-			
-			
 		}		
 	}
 }
