@@ -99,7 +99,11 @@ a.nounderline:link {
 	text-decoration:none; 
 }
 
-/* Pour le formulaire d'inscription*/
+/* Pour le formulaire d'inscription et de connextion*/
+.connection {
+	margin-bottom: 30px;
+}
+
 fieldset {
     border: thin solid #ccc; 
     border-radius: 4px;

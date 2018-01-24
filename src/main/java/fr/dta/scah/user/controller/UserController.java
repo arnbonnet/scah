@@ -37,4 +37,10 @@ public class UserController {
 	public User getConnectedUser() {
 		return securityService.getConnectedUser();
 	}
+	
+	@RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Long editUser(@RequestBody @Valid User user) {
+		userService.edit(user);
+		return user.getId();
+	}
 }
