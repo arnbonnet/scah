@@ -12,7 +12,8 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 			console.log("error creating product" + response.data)
 		});
 	};
-
+	
+	/*Récupère tous les produits de la BDD*/
 	$scope.ListProducts = [];
 	ProductService.getAllProduct().then(
 		function(data) {

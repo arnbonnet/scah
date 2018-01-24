@@ -1,4 +1,4 @@
-angular.module('app').factory('UserService', ['$http', function($http) {
+angular.module('app').factory('UserService', ['$http', '$location', function($http, $location) {
 	
 	var promiseUser = $http.get('/scah/api/users/connectedUser');
 	var getRoleBody = function() {
@@ -15,8 +15,20 @@ angular.module('app').factory('UserService', ['$http', function($http) {
 		return promiseRole;
 	};
 	
+	var createUserBody = function(user) {
+		var promiseCreateUser = $http.post('/scah/api/users/', user);	
+		promiseCreateUser.then(function(response) {
+			console.log(response);
+			$location.path('/scah');
+		});
+		
+		return promiseCreateUser;
+	}
+	
+	
 	return {
-		getRole : getRoleBody
+		getRole : getRoleBody,
+		createUser : createUserBody,
 	}
 }]);
 
