@@ -51,6 +51,15 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 		return promiseRemoveProduct;
 	};
 	
+	//upload des images
+	var uploadFile = function(file){
+		var promiseUploadFile = $http.post('/scah/api/products/upload', file);
+		promiseUploadFile.them(function(response){
+			return response.data;
+		});
+		return promiseUploadFile;
+	}
+	
 	
 	return {
 		getAllProduct : getAllProductBody,

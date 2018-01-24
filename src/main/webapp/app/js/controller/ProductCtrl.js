@@ -5,6 +5,7 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 	
 	$scope.createProduct = function(){
 		console.log($scope.data.product);
+		ProductService.uploadFile($scope.data.product.image);
 		return ProductService.addProduct($scope.data.product).then(function(response){
 			console.log('product creation success');
 			return response.data;

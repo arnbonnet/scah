@@ -75,13 +75,14 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 
 	public void remove(Long id) {
 		productRepository.delete(id);
-}
-		public boolean store(long id, MultipartFile file) {
+	}
+	
+	public boolean store(MultipartFile file) {
 
 		String filename = StringUtils.cleanPath(file.getOriginalFilename());
 
 		try {
-			File convFile = new File(".\\src\\main\\webapp\\app\\images\\"+id+"\\" + file.getOriginalFilename());
+			File convFile = new File(".\\src\\main\\webapp\\app\\images\\" + file.getOriginalFilename());
 		    convFile.getParentFile().mkdirs();
 		    convFile.createNewFile();
 		    
