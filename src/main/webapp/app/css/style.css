@@ -98,3 +98,11 @@ createProductForm.input.ng-dirty.ng-invalid{
 a.nounderline:link { 
 	text-decoration:none; 
 }
+
+form input.valid {
+	border-color : green;
+}
+
+form input.invalid {
+	border-color : red;
+}

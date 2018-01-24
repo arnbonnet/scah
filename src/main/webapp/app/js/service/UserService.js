@@ -1,7 +1,7 @@
-angular.module('app').factory('UserService', ['$http', function($http) {
+angular.module('app').factory('UserService', ['$http', '$location',function($http, $location) {
 	
-	var promiseUser = $http.get('/scah/api/users/connectedUser');
 	var getRoleBody = function() {
+		var promiseUser = $http.get('/scah/api/users/connectedUser');
 		var promiseRole = promiseUser.then(function(response) {
 			console.log(response.data);
 			if(response.data.admin) {
@@ -15,8 +15,21 @@ angular.module('app').factory('UserService', ['$http', function($http) {
 		return promiseRole;
 	};
 	
+	var loginBody = function(email, password) {
+		var loginPromise = $http.post('/scah/authenticate', undefined, {params:{username:email, password:password}});
+		loginPromise.then(
+				function() {
+					$location.path('/scah');					
+				},
+				function() {
+					console.log('error UserService - login');
+				}
+		);
+	};
+	
 	return {
-		getRole : getRoleBody
+		//getRole : getRoleBody,
+		login : loginBody
 	}
 }]);
 
