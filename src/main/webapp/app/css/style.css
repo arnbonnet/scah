@@ -98,3 +98,26 @@ createProductForm.input.ng-dirty.ng-invalid{
 a.nounderline:link { 
 	text-decoration:none; 
 }
+
+/* Pour le formulaire d'inscription*/
+fieldset {
+    border: thin solid #ccc; 
+    border-radius: 4px;
+    padding: 20px;
+    padding-left: 40px;
+    background: #fbfbfb;
+}
+
+span.req {
+    color:maroon;
+    font-size: 20px;
+} 
+
+form input.valid {
+	border-color : green;
+}
+
+form input.invalid {
+	border-color : red;
+}
+

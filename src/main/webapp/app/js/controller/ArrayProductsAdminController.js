@@ -9,9 +9,6 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 	$scope.check = [];
 	$scope.switche;
 	
-	
-	
-	
 	// fonction qui affiche la recherche avancée
     $scope.showAdvancedResearch = function() {
         $scope.advancedResearch = !$scope.advancedResearch;
@@ -19,13 +16,13 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     
     //récupère l'ensemble des produits via la bdd
     ProductService.getAllProduct().then(
-    		function(data) {
-    			initData(data);
-    		},
-    		function() {
-    			console.log("Error ListProductCtrl - getAllProduct");
-    		}
-    	);
+		function(data) {
+			initData(data);
+		},
+		function() {
+			console.log("Error ListProductCtrl - getAllProduct");
+		}
+	);
     
     //gère l'affichage des deux boutons suppresion et activation.désativation
     function initData(data){
@@ -57,6 +54,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 		});
     }
 	
+    // Call modal for product deletion confirmation
     $scope.callConfirmDelete = function(item){
     	var modalInstance = $uibModal.open({
     	      templateUrl: 'app/template/modal-confirm-delete.html',
@@ -67,16 +65,27 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     	      }
    	    });
     	
+    	//Handle modal response if confirme or cancel
     	modalInstance.result.then(function () {
     		remove(item.id);
     	}, function () {
 //    		 console.log('NOK');
-    	});
-    	
+    	}); 	
     }
     
     $scope.removeProduct = function(id){
     	console.log(id);
     	remove(id);
+    }
+    
+    // change product status if admin click on button activer/désactiver
+    $scope.productStatus = function(product){
+    	product.activated = !product.activated;
+		return ProductService.editProduct(product).then(function(response){
+			console.log('product status change success');
+			return response.data;
+		}, function(response){
+			console.log("error status change product" + response.data)
+		});
     }
 });
