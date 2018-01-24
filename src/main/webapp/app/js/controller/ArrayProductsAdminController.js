@@ -17,7 +17,6 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 		console.log($scope.check);
 	}
 	
-	
 	// fonction qui affiche la recherche avancée
     $scope.showAdvancedResearch = function() {
         $scope.advancedResearch = !$scope.advancedResearch;
@@ -25,13 +24,13 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     
     //récupère l'ensemble des produits via la bdd
     ProductService.getAllProduct().then(
-    		function(data) {
-    			initData(data);
-    		},
-    		function() {
-    			console.log("Error ListProductCtrl - getAllProduct");
-    		}
-    	);
+		function(data) {
+			initData(data);
+		},
+		function() {
+			console.log("Error ListProductCtrl - getAllProduct");
+		}
+	);
     
     //gère l'affichage des deux boutons suppresion et activation.désativation
     $scope.switche = function(id){
@@ -41,7 +40,6 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     $scope.show = function(){
     	return $scope.check.includes(true);
     }
-    
     
     function remove(id){
     	ProductService.removeProduct(id)
@@ -70,8 +68,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     		remove(item.id);
     	}, function () {
 //    		 console.log('NOK');
-    	});
-    	
+    	}); 	
     }
     
     $scope.removeProduct = function(id){
