@@ -43,6 +43,10 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 		return productRepository.findById(id);
 	}
 
+	public void editProduct(Product product) {
+		productRepository.save(product);
+	}
+	
 	@Override
 	public List<Product> findByCriteria(String title, String category, Integer stock, Float price, Integer orders) {
 		
@@ -69,7 +73,10 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 		return searchResult;
 	}
 
-	public boolean store(long id, MultipartFile file) {
+	public void remove(Long id) {
+		productRepository.delete(id);
+}
+		public boolean store(long id, MultipartFile file) {
 
 		String filename = StringUtils.cleanPath(file.getOriginalFilename());
 
@@ -97,7 +104,6 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 			throw new StorageException("Failed to store file " + filename, e);
 			
 			
-		}
-		
+		}		
 	}
 }

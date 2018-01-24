@@ -1,18 +1,22 @@
 
-<div class="row"> 
-	<div class="col-sm-12"> 
+<div class="row">
+	<div class="btn-group btn-group-justified">
+		<a href="#" class="btn btn-primary">Livre</a>
+		<a href="#" class="btn btn-primary">Jeux vidéo</a>
+		<a href="#" class="btn btn-primary">DVD</a>
+		<a href="#" class="btn btn-primary">Musique</a>
+	</div>
+	<div class="col-sm-12 list-products">
 		<div class="col-md-4 " data-ng-repeat="product in ListProduct">
-			<a href="#!/product/{{product.id}}" class="nounderline" >
-			<span class="thumbnail">
-				<h3 class="pull-left price" >{{product.price}} &euro;</h3>
-				<img data-ng-src="https://i.pinimg.com/originals/28/aa/3d/28aa3d099a1a50885235e5e9cc4965d2.jpg" class=" cover">
-				<div class="caption">
-					<h4 class="text-center">{{product.title}}</h4>
-				</div>
-			</span>
+			<a href="#!/product/{{product.id}}" class="nounderline">
+				<span class="thumbnail">
+					<h3 class="pull-left price" >{{product.price | currency : '' : 2}} &euro;</h3>
+					<img data-ng-src="https://i.pinimg.com/originals/28/aa/3d/28aa3d099a1a50885235e5e9cc4965d2.jpg" class=" cover">
+					<div class="caption">
+						<h4 class="text-center">{{product.title}}</h4>
+					</div>
+				</span>
 			</a>
 		</div>
 	</div>
 </div>
-
-²

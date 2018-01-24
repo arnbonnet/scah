@@ -1,9 +1,6 @@
 angular.module('app').factory('UserService', ['$http', function($http) {
 	
-	var host = 'http://localhost';
-	var port = '8080';
-	
-	var promiseUser = $http.get(host + ':' + port + '/scah/api/users/connectedUser');
+	var promiseUser = $http.get('/scah/api/users/connectedUser');
 	var getRoleBody = function() {
 		var promiseRole = promiseUser.then(function(response) {
 			console.log(response.data);

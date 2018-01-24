@@ -1,11 +1,7 @@
-<h2>Cr&eacuteation d'un produit</h2>
-
-	
-<form name="createProductForm"  novalidate>
-
-<div class="row">
-
-	<div class="col-md-6">
+<div class="container">
+	<h2>Modification d'un produit</h2>
+	<div class="row">
+		<form name="ProductForm"  class="col-md-4 col_md_offset-4" novalidate>
 			<label for="name">Titre du produit:</label>
 			<input type="text" class="form-control" id="name" x-ng-model="data.product.title" x-ng-bind="data.product.title" required>
 			
@@ -32,39 +28,19 @@
 				<label for="activated">Activate:</label>
 				<input type="checkbox" class="" id="activated"  x-ng-model="product.activated" x-ng-bind="product.activated">
 			</div>
-				
+				<br />
 			
-			<div ng-show="createProductForm.price.$invalid">
-			Invalid:
-			<span ng-show="createProductForm.price.$error">This is not a valid price.</span>
+			<label for="image">Image link:</label>
+			<input type="text" class="form-control" id="image" x-ng-model="data.product.image" x-ng-bind="data.product.image" required>
+			
+			<br />
+			<div ng-show="ProductForm.price.$invalid">
+				Invalid:
+				<span ng-show="ProductForm.price.$error">This is not a valid price.</span>
 			</div>
-		</div>
-		
-
-		<div class="col-md-6 col-middle">
 			
-		<div>
-			<form method="POST" enctype="multipart/form-data" action="/">
-				
-				<label for="image">Image</label>
-				
-				  <input type='file' id="imgImport" class="btn" x-ng-model="data.product.image" x-ng-bind="data.product.image"/>
-				  <img id="img" src="#" alt="votre image" class="img-thumbnail"  width="304" height="236"/>
-
-			</form>
-		</div>
-	
-	</div>
-
-</div>
-
-	
-<div class="row" style="margin-top:20px">
-	<div class="col-md-12 text-right " style="margin-bottom:15px"> 
-		<button class="btn btn-primary " x-ng-click="createProduct()" x-ng-disabled="createProductForm.$invalid || isUnchanged(product)">Cr&eacuteer</button>
-		<a href="#!" id="cancel" name="cancel" class="btn btn-default ">Annuler</a>
+			<button class="btn btn-primary col-md-3 col-md-offset-6" x-ng-click="editProduct()" x-ng-disabled="ProductForm.$invalid || isUnchanged(product)">Modifier</button>
+			<a href="#!" id="cancel" name="cancel" class="btn btn-default col-md-3">Cancel</a>
+		</form>
 	</div>
 </div>
-		
-
-</form>

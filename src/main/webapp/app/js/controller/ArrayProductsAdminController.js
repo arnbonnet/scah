@@ -2,12 +2,20 @@
  * Controller de la vue recherche produit de l'admin, avec affichage de tous les prpduits sous la forme de tableaux
  */
 
-app.controller('ArrayProductsAdminController', function($scope, ProductService){
+app.controller('ArrayProductsAdminController', function($scope, ProductService, $uibModal){
 	$scope.advancedResearch = false;
 	$scope.activate = false;
 	$scope.ListProduct = [];
 	$scope.check = [];
 	$scope.switche;
+	
+	function initData(data){
+		$scope.ListProduct = data;
+		for(var key in $scope.ListProduct){
+			$scope.check[key]=false;
+		}
+		console.log($scope.check);
+	}
 	
 	
 	// fonction qui affiche la recherche avancée
@@ -18,12 +26,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService){
     //récupère l'ensemble des produits via la bdd
     ProductService.getAllProduct().then(
     		function(data) {
-    			$scope.ListProduct = data;
-    			for(var key in $scope.ListProduct){
-    				$scope.check[key]=false;
-    			}
-    			
-    			
+    			initData(data);
     		},
     		function() {
     			console.log("Error ListProductCtrl - getAllProduct");
@@ -39,10 +42,40 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService){
     	return $scope.check.includes(true);
     }
     
-
-    //gestion de la modification
     
+    function remove(id){
+    	ProductService.removeProduct(id)
+		.then(function(response){
+			console.log('remove success');
+			ProductService.reload().then(function(data) {
+    			initData(data);
+			});
+			return response;
+		}, function(response){
+			console.log('remove error');
+		});
+    }
+	
+    $scope.callConfirmDelete = function(item){
+    	var modalInstance = $uibModal.open({
+    	      templateUrl: 'app/template/modal-confirm-delete.html',
+    	      controller : 'ModalConfirmDeleteController',
+    	      size: 'md',
+    	      resolve : {
+    	    	  item : item
+    	      }
+   	    });
+    	
+    	modalInstance.result.then(function () {
+    		remove(item.id);
+    	}, function () {
+//    		 console.log('NOK');
+    	});
+    	
+    }
     
-    
-    //
+    $scope.removeProduct = function(id){
+    	console.log(id);
+    	remove(id);
+    }
 });

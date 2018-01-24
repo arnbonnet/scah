@@ -1,3 +1,17 @@
+.content {
+	padding-top: 90px;
+}
+
+.navbar-default {
+  background-color: #e0e0eb;
+  background-image: none;
+  background-repeat: no-repeat;
+ }
+ 
+ .list-products {
+ 	margin-top: 30px;
+ }
+
 .cover {
 	width: 100px;
 	heigth: 100px;
@@ -7,9 +21,7 @@
 	border-color: steelblue;
 	cursor: pointer;
 }
-.flyover:hover {
-	cursor: pointer;
-}
+
 .thumbnail {
 	heigth: 400px;
 	width: auto;
@@ -28,7 +40,7 @@
     padding: 5px;
     border-radius: 0 10px 10px 0;
 }
-}
+
 .row {
 	margin-top : 15px;
 	margin-botton : 15px;
@@ -71,21 +83,18 @@
 	margin: auto;
 }
 
-.caption h3{
+.caption h3 {
 	display: block;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-fixed {
-	position:fixed;
-}
 /*CSS for createProduct formular*/
-input.ng-dirty.ng-invalid{
+createProductForm.input.ng-dirty.ng-invalid{
 	color: red;
 }
+
 /* CSS Remove thumbnail link effect in list product page */
-a.nounderline:link 
-{ 
-text-decoration:none; 
-} 
+a.nounderline:link { 
+	text-decoration:none; 
+}
