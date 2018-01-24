@@ -55,6 +55,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 		});
     }
 	
+    // Call modal for product deletion confirmation
     $scope.callConfirmDelete = function(item){
     	var modalInstance = $uibModal.open({
     	      templateUrl: 'app/template/modal-confirm-delete.html',
@@ -65,6 +66,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     	      }
    	    });
     	
+    	//Handle modal response if confirme or cancel
     	modalInstance.result.then(function () {
     		remove(item.id);
     	}, function () {
@@ -75,5 +77,16 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     $scope.removeProduct = function(id){
     	console.log(id);
     	remove(id);
+    }
+    
+    // change product status if admin click on button activer/désactiver
+    $scope.productStatus = function(product){
+    	product.activated = !product.activated;
+		return ProductService.editProduct(product).then(function(response){
+			console.log('product status change success');
+			return response.data;
+		}, function(response){
+			console.log("error status change product" + response.data)
+		});
     }
 });
