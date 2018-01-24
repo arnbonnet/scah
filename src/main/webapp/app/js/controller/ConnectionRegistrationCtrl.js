@@ -5,5 +5,10 @@ angular.module('app').controller('ConnectionRegistrationCtrl', function($scope, 
 	$scope.create = function(user) {
 		UserService.createUser(user);
 	}
-	
+
+	$scope.login = function(email, password) {
+		console.log('login', email, password );
+		UserService.login(email, password);
+	};
+
 });

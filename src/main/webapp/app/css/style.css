@@ -100,19 +100,6 @@ a.nounderline:link {
 }
 
 /* Pour le formulaire d'inscription*/
-/* body {
-    padding-top:50px;
-}
-
-legend {
-   color: #678;
-}
-.form-control {
-    width: 95%;
-}
-label small {
-    color: #678 !important;
-}*/
 fieldset {
     border: thin solid #ccc; 
     border-radius: 4px;
@@ -125,3 +112,12 @@ span.req {
     color:maroon;
     font-size: 20px;
 } 
+
+form input.valid {
+	border-color : green;
+}
+
+form input.invalid {
+	border-color : red;
+}
+
