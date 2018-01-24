@@ -1,6 +1,7 @@
 angular.module('app').factory('UserService', ['$http', '$location',function($http, $location) {
 	
 	var role = '';
+	var authenticationFailed = false;
 	function calculateRole(){ 
 		return $http.get('/scah/api/users/connectedUser').then(function(response) {
 			console.log(response.data);
@@ -34,11 +35,13 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 				function() {
 					return calculateRole().then(function(){
 						$location.path('/scah');
+						authenticationFailed = false;
 					}); // Le loggage est effectif lorsque l'on a également rechargé le role
 				},
 				function() {
 					console.log('error UserService - login');
 					role = '';
+					authenticationFailed = true;
 				}
 		);
 	};
@@ -57,11 +60,16 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 		);
 	}
 	
+	var isAuthenticationFailedBody = function() {
+		return authenticationFailed;
+	}
+	
 	return {
 		getRole : getRoleBody,
 		login : loginBody,
 		logout : logoutBody,
 		createUser : createUserBody,
+		isAuthenticationFailed : isAuthenticationFailedBody,
 	}
 }]);
 
