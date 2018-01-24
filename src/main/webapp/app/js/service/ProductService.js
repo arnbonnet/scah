@@ -51,6 +51,20 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 		return promiseRemoveProduct;
 	};
 	
+	//upload des images
+	var uploadFileBody = function(file){
+        var formdata = new FormData();
+        formdata.append('file', file);
+		var promiseUploadFile = $http.post('/scah/api/products/upload', formdata,  {headers: {'Content-Type': undefined}});
+		promiseUploadFile.then(function(response){
+			console.log(response);
+			return response.data;
+		}, function(response){
+			console.log('ERR', response);
+		});
+		return promiseUploadFile;
+	}
+	
 	
 	return {
 		getAllProduct : getAllProductBody,
@@ -58,7 +72,8 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 		getOneProduct : getOneProductBody,
 		editProduct : editProductBody,
 		removeProduct : removeProductBody,
-		reload : reloadBody
+		reload : reloadBody,
+		uploadFile : uploadFileBody
 	}
 }]);
 
