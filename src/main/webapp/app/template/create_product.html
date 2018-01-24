@@ -34,9 +34,6 @@
 			</div>
 				
 			
-			<label for="image">Image link:</label>
-			<input type="text" class="form-control" id="image" x-ng-model="data.product.image" x-ng-bind="data.product.image" required>
-			
 			<div ng-show="createProductForm.price.$invalid">
 			Invalid:
 			<span ng-show="createProductForm.price.$error">This is not a valid price.</span>
@@ -50,7 +47,7 @@
 				
 				<label for="image">Image</label>
 				
-				  <input type='file' id="imgImport" class="btn" />
+				  <input type='file' id="imgImport" class="btn" x-ng-model="data.product.image" x-ng-bind="data.product.image"/>
 				  <img id="img" src="#" alt="votre image" class="img-thumbnail"  width="304" height="236"/>
 
 			</form>
@@ -63,7 +60,7 @@
 <div class="row" style="margin-top:20px">
 	<div class="col-md-12 text-right " style="margin-bottom:15px"> 
 		<button class="btn btn-primary " x-ng-click="createProduct()" x-ng-disabled="createProductForm.$invalid || isUnchanged(product)">Cr&eacuteer</button>
-		<a href="#!" id="cancel" name="cancel" class="btn btn-default ">Cancel</a>
+		<a href="#!" id="cancel" name="cancel" class="btn btn-default ">Annuler</a>
 	</div>
 </div>
 		
