@@ -15,15 +15,20 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 	};
 	
 	/*Récupère tous les produits de la BDD*/
-	$scope.ListProducts = [];
-	ProductService.getAllProduct().then(
-		function(data) {
-			$scope.ListProduct = data;
-		},
-		function() {
-			console.log("Error ProductCtrl - getAllProduct");
-		}
-	);
+//	$scope.ListProducts = [];
+//	ProductService.getAllProduct().then(
+//		function(data) {
+//			$scope.ListProduct = data;
+//		},
+//		function() {
+//			console.log("Error ProductCtrl - getAllProduct");
+//		}
+//	);
+	
+	// nouvelle façon de récup les produits
+	$scope.ListProducts = function() {
+		return ProductService.getProducts();
+	};
 
 	//fonction qui permet l'affichage de l'image uploader en prévisualisation
 	//attention c'est en jquery
@@ -48,8 +53,8 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 		});
 		
 		$scope.uploadFile = function() {
-			var fichier = document.getElementById('fichier').files[0];
-			ProductService.uploadFile(fichier);
+			var file = document.getElementById('fichier').files[0];
+			ProductService.uploadFile(file);
 			console.log("passage dans upload file");
 		}
 		

@@ -19,9 +19,9 @@
 		     	
 				<form class="navbar-form navbar-left">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Rechercher un produit ...">
+						<input type="text" class="form-control" placeholder="Rechercher un produit ..." ng-model="productTitle">
 						<div class="input-group-btn">
-							<button class="btn btn-default" type="submit">
+							<button class="btn btn-default" type="button" ng-click="search(productTitle)">
 								<i class="glyphicon glyphicon-search"></i>
 							</button>
 						</div>
