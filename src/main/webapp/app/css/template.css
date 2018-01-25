@@ -14,3 +14,12 @@
 .euro:after{
 	content: '\&euro;';
 }
+
+table td mid {
+  vertical-align: middle !important;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}

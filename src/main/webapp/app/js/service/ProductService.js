@@ -74,7 +74,7 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 		});
 		return promiseRemoveProduct;
 	};
-	
+
 	//upload des images
 	var uploadFileBody = function(file){
         var formdata = new FormData();
@@ -88,7 +88,7 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 		});
 		return promiseUploadFile;
 	}
-	
+
 	return {
 		getAllProduct : getAllProductBody,
 		setSearch : setSearchBody,

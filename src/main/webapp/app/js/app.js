@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ui.bootstrap']);
+var app = angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies']);
 
 app.config(function($routeProvider) {
 	$routeProvider.when('/', {
@@ -26,8 +26,8 @@ app.config(function($routeProvider) {
 		controller:'ConnectionRegistrationCtrl'
 	})
 	.when('/basket',{
-		templateUrl:'./app/template/basket.html',
-		controller:'ConnectionRegistrationCtrl'
+		templateUrl:'./app/template/cart.html',
+		controller:'CartCtrl'
 	})
 	
 	.otherwise({
