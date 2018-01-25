@@ -1,1 +1,43 @@
-Test
+
+	<div class="col-md-10">
+		<form novalidate>
+			<fieldset>
+				<legend class="text-center">S'inscrire</legend>
+				<div class="form-group"> 	 
+				    <label  ><span class="req">* </span> Nom: </label>
+				    <input x-ng-model="user.firstname" class="form-control" type="text" placeholder="Votre nom" required />     
+				</div>
+		
+				<div class="form-group">
+				    <label for="lastname"><span class="req">* </span> Pr&eacute;nom: </label> 
+				    <input x-ng-model="user.lastname" class="form-control" type="text" placeholder="Votre prénom" required />  
+
+				</div>
+				
+				<div class="form-group">
+				    <label> Adresse: </label> 
+				    <input x-ng-model="user.adress" class="form-control" type="text" placeholder="Votre adresse postal" required /> 
+				</div>
+				
+				<div class="form-group">
+		       		<label>Numéro de téléphone: </label>
+		            <input x-ng-model="user.phone" type="text" class="form-control phone" placeholder="Votre numéro de téléphone" required/> 
+				</div>
+				
+				<div class="form-group">
+				    <label ><span class="req">* </span> Adresse Mail: </label> 
+				    <input x-ng-model="user.email" class="form-control" type="email" placeholder="Votre email" required />   
+				</div>
+		
+				<div class="form-group">
+					<label ><span class="req">* </span> Mot de passe </label>
+				    <input x-ng-model="user.password" type="password" class="form-control inputpass" placeholder="Votre mot de passe" required />
+				</div>
+		
+				<div class="form-group">
+				    <button class="btn btn-primary" type="submit" x-ng-click="create(user)" data-ng-disabled="form.$invalid">S'inscrire</button>
+				</div>
+			
+			</fieldset>
+		</form>
+	</div>

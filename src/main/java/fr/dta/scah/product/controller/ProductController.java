@@ -59,11 +59,14 @@ public class ProductController {
 		productService.remove(id);
 	}
 
-	@RequestMapping(value="{id}/upload", method = RequestMethod.POST)
-    public void handleFileUpload(@RequestParam MultipartFile file, @PathVariable long id) {
-		productService.store(id, file);
+	//gestion de l'upload des images
+	@RequestMapping(value="upload", method = RequestMethod.POST)
+    public String handleFileUpload(@RequestParam MultipartFile file) {
+		productService.store(file);
+		return "{\"name\":\""+file.getOriginalFilename()+"\"}";
     }
 
+	//gestion des exceptions du aux erreurs de l'upload des images
 	@ExceptionHandler(StorageFileNotFoundException.class)
     public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
         return ResponseEntity.notFound().build();

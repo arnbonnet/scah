@@ -22,7 +22,7 @@ public class SecurityService implements Serializable {
     public User getConnectedUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         
-        if(authentication == null) {
+        if(authentication == null || "anonymousUser".equals(authentication.getPrincipal())) {
             return null;
         }
         

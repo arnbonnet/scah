@@ -25,6 +25,11 @@ app.config(function($routeProvider) {
 		templateUrl:'./app/template/connection_registration.html',
 		controller:'ConnectionRegistrationCtrl'
 	})
+	.when('/basket',{
+		templateUrl:'./app/template/basket.html',
+		controller:'ConnectionRegistrationCtrl'
+	})
+	
 	.otherwise({
 		redirectTo:'/'
 	})
