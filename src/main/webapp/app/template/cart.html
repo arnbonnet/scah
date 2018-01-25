@@ -1,4 +1,5 @@
 <div class="container">
+<h1>Votre panier</h1>
 
 	<div class="row">
 		<div class="col-md-8 ">
@@ -16,30 +17,15 @@
 	    </thead>
 	    <tbody>
 	    
-	      <tr >
-	        <td class="text-center"><img class="imageProduct img-thumbnail" data-ng-src="app/images/carnet-cerise.jpg" style="width:100px;height:120px;"></td>
-	        <td style="vertical-align:middle">truc2 &euro;</td>
-	        <td style="vertical-align:middle">truc </td>
-	        <td style="vertical-align:middle">!</td>
-	        <td class="text-center" style="vertical-align:middle"> <a href="#"><i class="fa fa-times fa-2x desactivateRed" aria-hidden="true" ></i></a></td>
+	      <tr ng-repeat="item in cart">
+	        <td class="text-center"><img class="imageProduct img-thumbnail" data-ng-src="app/images/{{item.item.image}}" style="width:100px;height:120px;"></td>
+	        <td style="vertical-align:middle">{{item.item.price}} &euro;</td>
+	        <td style="vertical-align:middle">{{item.nb}} </td>
+	        <td style="vertical-align:middle">{{item.item.title}}</td>
+	        <td class="text-center" style="vertical-align:middle" > <button ng-click="deleteOneItem(item.item.id)" class="btn"><i class="fa fa-times fa-2x desactivateRed" aria-hidden="true"  ></i></button></td>
 	        
 	      </tr>   
-	      <tr >
-	        <td class="text-center"><img class="imageProduct img-thumbnail" data-ng-src="app/images/chateaux-bordeaux.jpg" style="width:100px;height:120px;"></td>
-	        <td style="vertical-align:middle">truc2 &euro;</td>
-	        <td style="vertical-align:middle">truc </td>
-	        <td style="vertical-align:middle">!</td>
-	        <td class="text-center" style="vertical-align:middle"> <a href="#"><i class="fa fa-times fa-2x desactivateRed" aria-hidden="true" ></i></a></td>
-	        
-	      </tr>   
-	      <tr >
-	        <td class="text-center"><img class="imageProduct img-thumbnail" data-ng-src="app/images/culottees.jpg" style="width:100px;height:120px;"></td>
-	        <td style="vertical-align:middle">truc2 &euro;</td>
-	        <td style="vertical-align:middle">truc </td>
-	        <td style="vertical-align:middle">!</td>
-	        <td class="text-center" style="vertical-align:middle"> <a href="#"><i class="fa fa-times fa-2x desactivateRed" aria-hidden="true" ></i></a></td>
-	        
-	      </tr>         
+	      
 	    </tbody>
 	  </table>
 		
@@ -51,14 +37,15 @@
 		
 		<div class=" col-md-offset-1 col-md-3">
 			<h1>Prix total</h1>
-			<h1> 35.20 &euro;</h1>
+			<h1> {{totalPrice()}} &euro;</h1>
 			<button class="btn btn-success" type="submit">Valider le panier</button>
 		
 	   </div>
 	</div>
 	
 	<div class="row">
-		<button class="btn btn-warning" type="submit">Abandonner</button>
+		<a class="btn btn-warning" href="#" ng-click="deleteCart()">Abandonner</a>
+		<a class="btn btn-warning" href="#" >Continuer mes achats</a>
 	</div>
 
 </div>

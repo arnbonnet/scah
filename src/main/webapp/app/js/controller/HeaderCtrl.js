@@ -4,7 +4,9 @@ angular.module('app').controller('HeaderCtrl', function($scope, CartService, Use
 		return UserService.getRole();
 	};
 	
-	$scope.nbItemsInCart=CartService.getCartNbItem();
+	$scope.nbItemsInCart= function(){
+		return CartService.getCartNbItem();
+	}
 		
 /*
 	if(UserService.isAuthenticated()) {

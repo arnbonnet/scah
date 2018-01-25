@@ -26,7 +26,7 @@ angular.module('app').factory('CartService', function($cookies){
 		if(!found){
 			cart.push(element);
 		}
-		console.log(cart);
+		
 		$cookies.putObject('myCart', cart);
 	} 
 	
@@ -38,9 +38,31 @@ angular.module('app').factory('CartService', function($cookies){
 		return getCart();
 	}
 	
+	//supprime le panier. En faite ça renvoie un tableau vide, donc un panier vide.
+	var deleteAllCartBody = function(){
+		return [];
+	}
+	
+	//supprime un élément du panier. Le porduit est passé en paramètre, 
+	//on vérifie si le produit est bien dans le panier, puis on cherche
+	//l'index du produit dans le tableau et on le supprime.On met à jour
+	//Les cookies, et On retourne le nouveau panier.
+	var deleteOneItemBody = function(id){
+		var cart = getCart();
+		for (var item in cart){
+			if (Object.is (cart[item].item.id, id) ){
+				cart.splice(item, 1);
+			}
+		}
+		$cookies.putObject('myCart', cart);
+		return cart;
+	}
+	
 	return {
 		addToCart : addToCartBody,
 		getCartNbItem : getCartNbItemBody,
-		getCartItems : getCartItemsBody
+		getCartItems : getCartItemsBody,
+		deleteAllCart : deleteAllCartBody,
+		deleteOneItem : deleteOneItemBody
 	}
 })

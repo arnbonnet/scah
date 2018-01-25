@@ -2,6 +2,7 @@ angular.module('app').controller('DetailProductCtrl', function($scope, $routePar
 	
 	$scope.product= undefined;
 	var productId = $routeParams.id;
+	var quantity = 0;
 	$scope.rupture = false;
 	$scope.quantity = 1;
 	
@@ -14,6 +15,7 @@ angular.module('app').controller('DetailProductCtrl', function($scope, $routePar
 	});
 	
 	$scope.addToCart = function(item){
+		$scope.quantity+1;
 		CartService.addToCart(item, $scope.quantity);
 		console.log('quantity:' + $scope.quantity )
 		console.log(CartService.getCartNbItem());

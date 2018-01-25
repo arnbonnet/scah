@@ -25,7 +25,7 @@ app.config(function($routeProvider) {
 		templateUrl:'./app/template/connection_registration.html',
 		controller:'ConnectionRegistrationCtrl'
 	})
-	.when('/basket',{
+	.when('/cart',{
 		templateUrl:'./app/template/cart.html',
 		controller:'CartCtrl'
 	})
