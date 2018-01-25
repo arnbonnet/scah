@@ -21,10 +21,12 @@
 	<div class="col-md-8 col-md-offset-4">
 		<div class="row">
 			<label class="col-md-1 quantityTitle">Quantité</label>
-	      	<input type="number" class="form-control col-md-2 productQuantityInput" value="1">
-	    	<button class="btn btn-primary col-md-3" type="submit">
-	    		Ajouter au panier <span class="fa fa-shopping-basket"></span> 
-	    	</button>
+			<form name="cartForm">
+		      	<input name="nb" type="number" class="form-control col-md-2 productQuantityInput" x-ng-min="1" x-ng-model="quantity" x-ng-bind="quantity" value="1">
+		    	<button class="btn btn-primary col-md-3" type="submit" x-ng-disabled="cartForm.nb.$invalid" x-ng-click="addToCart(product)">
+		    		Ajouter au panier <span class="fa fa-shopping-basket"></span> 
+		    	</button>
+			</form>		    	
 	    	<div class="col-md-offset-5"></div>
     	</div>
     </div>

@@ -51,7 +51,6 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 		return promiseRemoveProduct;
 	};
 	
-	
 	return {
 		getAllProduct : getAllProductBody,
 		addProduct : addProductBody,
