@@ -43,7 +43,7 @@ public class User implements Serializable {
 	
 	private String address;
 	
-	@Size(min=10)
+	@Size(min=10, max=10)
 	private String phone;
 	
 	@NotBlank
@@ -122,5 +122,12 @@ public class User implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 }

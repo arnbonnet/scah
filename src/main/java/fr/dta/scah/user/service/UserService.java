@@ -31,5 +31,8 @@ public class UserService {
 		
 		userRepository.saveAndFlush(user);
 	}
-
+	
+	public void edit(User user) {
+		userRepository.save(user);
+	}
 }

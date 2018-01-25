@@ -1,15 +1,15 @@
- <div class="row">
+
 	<div class="col-md-10">
 		<form novalidate>
 			<fieldset>
-				<legend class="text-center">S'inscire</legend>
+				<legend class="text-center">S'inscrire</legend>
 				<div class="form-group"> 	 
 				    <label  ><span class="req">* </span> Nom: </label>
 				    <input x-ng-model="user.firstname" class="form-control" type="text" placeholder="Votre nom" required />     
 				</div>
 		
 				<div class="form-group">
-				    <label for="lastname"><span class="req">* </span> Prénom: </label> 
+				    <label for="lastname"><span class="req">* </span> Pr&eacute;nom: </label> 
 				    <input x-ng-model="user.lastname" class="form-control" type="text" placeholder="Votre prénom" required />  
 
 				</div>
@@ -21,7 +21,7 @@
 				
 				<div class="form-group">
 		       		<label>Numéro de téléphone: </label>
-		            <input x-ng-model="user.phone" type="text" class="form-control phone" maxlength="13" placeholder="Votre numéro de téléphone" required/> 
+		            <input x-ng-model="user.phone" type="text" class="form-control phone" placeholder="Votre numéro de téléphone" required/> 
 				</div>
 				
 				<div class="form-group">
@@ -35,10 +35,9 @@
 				</div>
 		
 				<div class="form-group">
-				    <button class="btn btn-success" type="submit" x-ng-click="create(user)" data-ng-disabled="form.$invalid">S'incrire</button>
+				    <button class="btn btn-primary" type="submit" x-ng-click="create(user)" data-ng-disabled="form.$invalid">S'inscrire</button>
 				</div>
 			
 			</fieldset>
 		</form>
 	</div>
-</div>
