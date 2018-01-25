@@ -29,10 +29,10 @@ public class UserService {
 		//cryptage du mot de passe
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		
-		userRepository.saveAndFlush(user);
+		userRepository.save(user);
 	}
 	
 	public void edit(User user) {
-		userRepository.save(user);
+		userRepository.saveAndFlush(user);
 	}
 }

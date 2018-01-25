@@ -44,7 +44,7 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 	}
 
 	public void editProduct(Product product) {
-		productRepository.save(product);
+		productRepository.saveAndFlush(product);
 	}
 	
 	@Override
