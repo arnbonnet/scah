@@ -17,7 +17,7 @@ angular.module('app').controller('CartCtrl', function($scope, CartService) {
 		var price = 0;
 		
 		for (var item in $scope.cart){
-			price = price+  $scope.cart[item].item.price;
+			price = price + $scope.cart[item].item.price* $scope.cart[item].nb;
 			
 		}
 		return Math.round(price*1000)/1000;
@@ -29,6 +29,7 @@ angular.module('app').controller('CartCtrl', function($scope, CartService) {
 		$scope.cart = CartService.deleteAllCart();
 	}
 	
+	//supprime un produit
 	$scope.deleteOneItem = function (id){
 		$scope.cart=CartService.deleteOneItem(id);
 		console.log($scope.cart);
