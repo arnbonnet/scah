@@ -40,7 +40,9 @@ angular.module('app').factory('CartService', function($cookies){
 	
 	//supprime le panier. En faite ça renvoie un tableau vide, donc un panier vide.
 	var deleteAllCartBody = function(){
-		return [];
+		var cart = [];
+		$cookies.putObject('myCart', cart);
+		return cart;
 	}
 	
 	//supprime un élément du panier. Le porduit est passé en paramètre, 
