@@ -1,5 +1,9 @@
-angular.module('app').controller('HeaderCtrl', function($scope, CartService, UserService) {
-	 
+angular.module('app').controller('HeaderCtrl', function($scope, UserService, ProductService, CartService) {
+	
+	$scope.search = function(title) {
+		ProductService.setSearch(title);
+	};
+	
 	$scope.role = function(){
 		return UserService.getRole();
 	};
@@ -7,18 +11,9 @@ angular.module('app').controller('HeaderCtrl', function($scope, CartService, Use
 	$scope.nbItemsInCart= function(){
 		return CartService.getCartNbItem();
 	}
-		
-/*
-	if(UserService.isAuthenticated()) {
-		UserService.getRole().then(function(data) {
-			$scope.role = data;
-		},
-		function() {
-			console.log("Error HeaderCtrl - getRole");
-		});
-	}
-*/
+
 	$scope.logout = function() {
 		UserService.logout();
 	};
+	
 });

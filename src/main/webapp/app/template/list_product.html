@@ -1,13 +1,27 @@
 
 <div class="row">
 	<div class="btn-group btn-group-justified">
-		<a href="#" class="btn btn-primary">Livre</a>
-		<a href="#" class="btn btn-primary">Jeux vidéo</a>
-		<a href="#" class="btn btn-primary">DVD</a>
-		<a href="#" class="btn btn-primary">Musique</a>
+		<label class="btn btn-primary">
+			Livre <input type="checkbox" class="badgebox" ng-model="category1" ng-checked="true" ng-init='category1=true'>
+			<span class="badge">&check;</span>
+		</label>
+		<label class="btn btn-primary">
+			Jeux vidéo <input type="checkbox" class="badgebox" ng-model="category2" ng-checked="true" ng-init='category2=true'>
+			<span class="badge">&check;</span>
+		</label>
+		
+		<label  class="btn btn-primary">
+			DVD <input  type="checkbox" class="badgebox"  ng-model="category3" ng-checked="true" ng-init='category3=true'>
+			<span class="badge">&check;</span>
+		</label>  
+		
+		<label  class="btn btn-primary">
+			Musique <input  type="checkbox" class="badgebox"  ng-model="category4" ng-checked="true" ng-init='category4=true'>
+			<span class="badge">&check;</span>
+		</label> 
 	</div>
 	<div class="col-sm-12 list-products">
-		<div class="col-md-4 " data-ng-repeat="product in ListProduct">
+		<div class="col-md-4 " data-ng-repeat="product in ListProducts() | searchProduct : category1:category2:category3:category4">
 			<a href="#!/product/{{product.id}}" class="nounderline">
 				<span class="thumbnail">
 					<h3 class="pull-left price" >{{product.price | currency : '' : 2}} &euro;</h3>

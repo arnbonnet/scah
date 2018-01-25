@@ -19,9 +19,9 @@
 		     	
 				<form class="navbar-form navbar-left">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Rechercher un produit ...">
+						<input type="text" class="form-control" placeholder="Rechercher un produit ..." ng-model="productTitle">
 						<div class="input-group-btn">
-							<button class="btn btn-default" type="submit">
+							<button class="btn btn-default" type="button" ng-click="search(productTitle)">
 								<i class="glyphicon glyphicon-search"></i>
 							</button>
 						</div>
@@ -29,7 +29,7 @@
 				</form>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown" ng-if="role() == 'user'">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon compte <span class="caret"></span></a>
+			        	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon compte <span class="caret"></span></a>
 			          	<ul class="dropdown-menu">
 				            <li><a href="#">Mon profil</a></li>
 				            <li><a href="#">Mes commandes</a></li>
@@ -38,9 +38,9 @@
 			          	</ul>
 			        </li>
 			        <li class="dropdown" ng-if="role() == 'admin'">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration <span class="caret"></span></a>
+			        	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration <span class="caret"></span></a>
 			          	<ul class="dropdown-menu">
-				            <li><a href="#">Produits</a></li>
+				            <li><a href="#!/admin_products">Produits</a></li>
 				            <li><a href="#">Commandes</a></li>
 				            <li role="separator" class="divider"></li>
 				            <li><a href="#" ng-click="logout()">Déconnexion</a></li>

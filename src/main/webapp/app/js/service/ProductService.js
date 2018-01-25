@@ -14,6 +14,31 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 	var getAllProductBody = function() {
 		return promiseProducts;
 	};
+
+	var getProductsByTitleBody = function(productTitle) {
+		console.log('get products by tittle', productTitle);
+		var promiseGetByTitle = $http.get('/api/products/search', {params:{title:productTitle}});
+		return promiseGetByTitle.then(function(response) {
+			return response.data;
+		});
+	};
+	
+	var products = [];
+	getAllProductBody().then(function(response) {
+		products = response;
+	});
+
+	var getProductsBody = function() {
+		return products;
+	};
+	
+	var setSearchBody = function(title) {
+		products = [];
+		console.log('setSearchBody', title);
+		getProductsByTitleBody(title).then(function(response) {
+			products = response;
+		});
+	};
 	
 	var addProductBody = function(product){
 		var promiseAddProduct = $http.post('/api/products', product, {});
@@ -66,12 +91,15 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 
 	return {
 		getAllProduct : getAllProductBody,
+		setSearch : setSearchBody,
+		getProductsByTitle : getProductsByTitleBody,
+		getProducts : getProductsBody,
 		addProduct : addProductBody,
 		getOneProduct : getOneProductBody,
 		editProduct : editProductBody,
 		removeProduct : removeProductBody,
 		reload : reloadBody,
-		uploadFile : uploadFileBody
+		uploadFile : uploadFileBody,
 	}
 }]);
 
