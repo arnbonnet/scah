@@ -11,7 +11,7 @@ VALUES
  (nextval('seq_product'), true, 'Un enfant insupportable malgré toutes les réprimandes qu''il se prend régulièrement', 'le-petit-nicolas.jpg', 0, 20.80, 5, 'Le petit Nicolas', 'Livre'),
  (nextval('seq_product'), true, 'L''âme de l''artiste est palpable parmi les ombres', 'les-amours-supendues.jpg', 0, 18.50, 13, 'Les amours suspendues', 'Livre'),
  (nextval('seq_product'), true, 'Une BD a lire quand on est dans la Lune, mais les pieds sur Terre', 'thomas-pesquet.jpg', 0, 19.99, 14, 'Dans la combi de Thomas Pesquet', 'Livre'),
- (nextval('seq_product'), true, 'A lire absolument ', 'un-autre-regard', 0, 15.75, 5, 'Un autre regard.jpg', 'Livre'),
+ (nextval('seq_product'), true, 'A lire absolument ', 'un-autre-regard.jpg', 0, 15.75, 5, 'Un autre regard', 'Livre'),
  (nextval('seq_product'), true, 'A ne pas confondre avec le Dr Mamour de Grey''s Anatomy', 'Dr-Folamour.jpg', 0, 10.75, 15, 'Docteur Folamour', 'DVD'),
  (nextval('seq_product'), true, 'Les rideaux ne sont pas la que pour la déco', 'Hitchcock-Fenetre-sur-cour.jpg', 0, 11.75, 5, 'Fenêtre sur cour', 'DVD'),
  (nextval('seq_product'), true, 'Le plagiat c''est pas bien', 'Hitchcock-La-main-au-collet.jpg', 0, 15.75, 5, 'La main au collet', 'DVD'),

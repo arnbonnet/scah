@@ -8,8 +8,10 @@ angular.module('app').controller('HeaderCtrl', function($scope, $location, UserS
 	$scope.role = function(){
 		return UserService.getRole();
 	};
-
-	$scope.nbItemsInCart = CartService.getCartNbItem();
+	
+	$scope.nbItemsInCart= function(){
+		return CartService.getCartNbItem();
+	}
 
 	$scope.logout = function() {
 		UserService.logout();
