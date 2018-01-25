@@ -1,9 +1,11 @@
-angular.module('app').controller('HeaderCtrl', function($scope, UserService) {
-	
+angular.module('app').controller('HeaderCtrl', function($scope, CartService, UserService) {
+	 
 	$scope.role = function(){
 		return UserService.getRole();
 	};
-
+	
+	$scope.nbItemsInCart=CartService.getCartNbItem();
+		
 /*
 	if(UserService.isAuthenticated()) {
 		UserService.getRole().then(function(data) {
