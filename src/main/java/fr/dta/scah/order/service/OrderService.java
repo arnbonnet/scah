@@ -1,5 +1,7 @@
 package fr.dta.scah.order.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +19,9 @@ public class OrderService {
 	
 	@Autowired
 	ProductQuantityRepository productQuantityRepository;
+	
+	@Autowired
+	ProductQuantityService productQuantityService;
 
 	public Order create(Order order) {
 //		System.out.println("Ajout de l'order " + order);
@@ -47,11 +52,12 @@ public class OrderService {
 //		ProductQuantityService.save(order.getQuantityProducts());
 //	}
 //	
-//	public List<Order> findAll() {
-//		List<Order> orders = orderRepository.findAll();
-//		orders.stream()
-//			.forEach(order -> order.getQuantityProducts().addAll(ProductQuantityService.findByOrderId(order.getId())));
-//		return orders;
-//	}
+	public List<Order> findAllWithProducts() {
+		return orderRepository.findAllWithProducts();
+	}
+
+	public List<Order> findAllOfUserWithProducts(Long id) {
+		return orderRepository.findAllOfUserWithProducts(id);
+	}
 	
 }
