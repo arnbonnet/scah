@@ -3,14 +3,14 @@
 		<form name="form" data-ng-submit="login(email, password)" role="form" novalidate>
 			<fieldset>
 				<legend class="text-center">Se connecter</legend>
-				<div ng-if="authenticationFailed()" class="desactivateRed">Votre email ou mot de passe est incorrect</div>
+				<div ng-if="authenticationFailed()" class="errorMessage">Votre email ou mot de passe est incorrect</div>
 				<div class="form-group">
 					<label for="email">Adresse email</label>
 					<input type="email" ng-class="{'form-control':true, 'valid':form.email.$valid && form.email.$touched, 'invalid':form.email.$invalid && form.email.$touched}"
 					id="email" name="email" ng-model="email" placeholder="ex : chocolatine@sud-ouest.fr" required>
 					<div data-ng-show="form.email.$dirty && form.email.$invalid">
-						<span data-ng-show="form.email.$error.required">Veuillez renseigner un email</span>
-						<span data-ng-show="form.email.$error.email">Cet email n'est pas valide</span>
+						<span data-ng-show="form.email.$error.required" class="errorMessage">Veuillez renseigner un email</span>
+						<span data-ng-show="form.email.$error.email" class="errorMessage">Cet email n'est pas valide</span>
 					</div>
 				</div>
 				<div class="form-group">

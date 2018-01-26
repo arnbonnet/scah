@@ -14,18 +14,6 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 		});
 	};
 	
-	/*Récupère tous les produits de la BDD*/
-//	$scope.ListProducts = [];
-//	ProductService.getAllProduct().then(
-//		function(data) {
-//			$scope.ListProduct = data;
-//		},
-//		function() {
-//			console.log("Error ProductCtrl - getAllProduct");
-//		}
-//	);
-	
-	// nouvelle façon de récup les produits
 	$scope.ListProducts = function() {
 		return ProductService.getProducts();
 	};
