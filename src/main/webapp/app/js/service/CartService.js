@@ -45,7 +45,7 @@ angular.module('app').factory('CartService', function($cookies){
 		return cart;
 	}
 	
-	//supprime un élément du panier. Le porduit est passé en paramètre, 
+	//supprime un élément du panier. Le produit est passé en paramètre, 
 	//on vérifie si le produit est bien dans le panier, puis on cherche
 	//l'index du produit dans le tableau et on le supprime.On met à jour
 	//Les cookies, et On retourne le nouveau panier.

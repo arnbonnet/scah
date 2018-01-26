@@ -113,9 +113,13 @@ fieldset {
 }
 
 span.req {
-    color:maroon;
+    color: maroon;
     font-size: 20px;
-} 
+}
+
+.errorMessage {
+	color: #b30000;
+}
 
 .createProductForm.input.valid {
 	border-color : green;
@@ -135,16 +139,14 @@ span.req {
     opacity: 0;
 }
 
-.badgebox + .badge
-{
+.badgebox + .badge{
     /* Move the check mark away when unchecked */
     text-indent: -999999px;
     /* Makes the badge's width stay the same checked and unchecked */
 	width: 27px;
 }
 
-.badgebox:focus + .badge
-{
+.badgebox:focus + .badge {
     /* Set something to make the badge looks focused */
     /* This really depends on the application, in my case it was: */
     
@@ -177,5 +179,18 @@ input#fichier.uploadImage {
 
 span.uploadImage {
 	margin-left: 30px;
+}
+
+.test{
+    
+    height:200px;
+    overflow:hidden;
+}
+
+.orderPrice{
+	vertical-align:middle;
+	display:table-cell;
+	text-align: center;
+	font-size: 40px;
 }
 

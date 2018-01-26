@@ -23,8 +23,4 @@ public class ProductQuantityService {
 		return pql;
 	}
 	
-//	public void () {
-//		
-//	}
-	
 }

@@ -3,6 +3,10 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 	var role = '';
 	var user = {};
 	var authenticationFailed = false;
+	var creationFailedEmail = false;
+	var creationFailedPhone = false;
+	var emailError = '';
+	
 	function calculateRole(){ 
 		return $http.get('/api/users/connectedUser').then(function(response) {
 			if(response.data.admin) {
@@ -32,11 +36,24 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 		promiseCreateUser.then(function(response) {
 		
 			$location.path('/');
-			loginBody(user.email,user.password);
+			loginBody(user.email, user.password);
+			creationFailedEmail = false;
+			creationFailedPhone = false;
+		},
+		function(response) {
+			console.log(response);
+			if("Unique" === response.data[0].code) {
+				emailError = response.data[0].defaultMessage;
+				creationFailedEmail = true;
+			} else if("Size" === response.data[0].code){
+				phoneError = response.data[0].defaultMessage;
+				creationFailedPhone = true;
+			}
+
 		});
 		
 		return promiseCreateUser;
-	}
+	};
 	
 	var loginBody = function(email, password) {
 		var loginPromise = $http.post('/authenticate', undefined, {params:{username:email, password:password}});
@@ -67,11 +84,27 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 					return calculateRole(); // Le déloggage est effectif lorsque l'on a également rechargé le role
 				}
 		);
-	}
+	};
 	
 	var isAuthenticationFailedBody = function() {
 		return authenticationFailed;
-	}
+	};
+	
+	var isCreationFailedBody = function(type) {
+		if(type === 'email') {
+			return creationFailedEmail;
+		} else if (type === 'phone') {
+			return creationFailedPhone;
+		}
+	};
+	
+	var getErrorBody = function(type) {
+		if(type === 'email') {
+			return emailError;
+		} else if (type === 'phone') {
+			return phoneError;
+		}
+	};
 	
 	var editUserBody = function(user) {
 		var promiseEditUser = $http.post('/api/users', user);
@@ -107,6 +140,8 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 		editUser : editUserBody,
 		checkConnection : checkConnectionBody,
 		getUser : getUserBody,
+		isCreationFailed : isCreationFailedBody,
+		getError : getErrorBody
 	}
 }]);
 
