@@ -31,7 +31,7 @@ app.config(function($routeProvider) {
 	})
 	.when('/orders',{
 		templateUrl:'./app/template/user_orders.html',
-		controller:'CartCtrl'
+		controller:'UserOrdersCtrl'
 	})
 	
 	.otherwise({

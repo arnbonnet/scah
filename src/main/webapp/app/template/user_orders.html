@@ -1,51 +1,63 @@
 <meta charset="UTF-8">
 <div class="container" style="display: table">
 <h1>Vos commandes</h1>
-<div class="row " style="overflow: hidden; display: table-row">
+<div class="row" ng-repeat="item in orders">
+		<div class="row" > 
+                    <div class="col-xs-12 col-sm-3 col-md-3 order test" style="padding-top: 80px">
+                    	<h1 class="text-center" >{{item.total_price}} €</h1>
+                    	
+                        
+                    </div> 
+                    
+                    <div class="col-xs-12 col-sm-5 col-md-5 ">
+                        <div class="list-group ">
+                            <div class="list-group-item test">
+                                <div class="row-picture" >
+                                    <a href="#!/product/143" title="Produit">
+                                        <img class="circle img-thumbnail img-box" data-ng-src="app/images/carnet-cerise.jpg" alt="Produit" style="width:100px;height:120px;">
+                                        <img class="circle img-thumbnail img-box" data-ng-src="app/images/carnet-cerise.jpg" alt="Produit" style="width:100px;height:120px;">
+                                        <img class="circle img-thumbnail img-box" data-ng-src="app/images/carnet-cerise.jpg" alt="Produit" style="width:100px;height:120px;">
+                                        
+                                    </a>
+                                    
+                                    
+                                    
+                                </div><br>
+                                <div class="row-content">
+                                	
+                                        <i title="Date" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="glyphicon glyphicon-time" ></i> <span> {{item.date}}</span><br>
+                                        <i title="N° commande" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="fa fa-first-order " aria-hidden="true"></i> <span> {{item.order_number}}</span><br>
+                                        
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    
+                    <div class="col-xs-12 col-sm-4 col-md-4  ">
+                    	<div class="list-group ">
+                            <div class="list-group-item test">
+                            	<div class="row-content ">
+                            		<i title="Panier" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="fa fa-shopping-basket" style="font-size:2.4rem"></i>
+                            		<ul>
+                                      
+									  <li>Coffee</li>
+									  <li>Tea</li>
+									  <li>Milk</li>
+									</ul> 
+                            	<i title="N° Client" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="fa fa-user " aria-hidden="true"></i><span> Gérard Tivoli</span><br>
+                            	<i title="Adresse" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="fa fa-home " aria-hidden="true"></i><span> 123 rue des Licornes 87520 Limoges</span><br>
+                            	<i title="Mail" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="fa fa-at " aria-hidden="true"></i><span> Tivoli_le_ravioli@panzani.fr</span>
+                            	
+                            	
+                            	</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <hr>
 
-	<div class="col-md-offset-2 col-md-2 order" style="vertical-align:middle; display: table-cell">
-	<h1>35.50€</h1>
-	
 	</div>
-
-	<div class="col-md-4 order">
-	<table class="table">
-    
-    <tbody>
-      <tr>
-        <td>N°Client</td>
-        <td>789458454</td>
-        </tr>
-        <tr>
-        <td>N°Commande</td>
-        <td>987969869</td>
-      </tr>
-      <tr>
-        <td>Nom</td>
-        <td>Leila</td>
-        </tr>
-        <tr>
-        <td>Prénom</td>
-        <td>Organa</td>
-      </tr>
-      
-    </tbody>
-  </table>
-	
-	
-	</div>
-
-	<div class="col-md-2 order" style=" display: table-cell">
-	pouet
-	
-	
-	</div>
-	
-	<div class="col-md-offset-2  ">
-	
-	
-	</div>
-
-</div>
 
 </div>

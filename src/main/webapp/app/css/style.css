@@ -158,3 +158,9 @@ form input.invalid {
 .order {
 	background-color : #e0e0eb;
 }
+
+.test{
+    
+    height:250px;
+    overflow:hidden;
+}
