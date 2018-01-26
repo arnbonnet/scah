@@ -164,3 +164,10 @@ form input.invalid {
     height:200px;
     overflow:hidden;
 }
+
+.orderPrice{
+	vertical-align:middle;
+	display:table-cell;
+	text-align: center;
+	font-size: 40px;
+}
