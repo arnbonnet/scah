@@ -13,8 +13,8 @@
  }
 
 .cover {
-	width: 100px;
-	heigth: 100px;
+	max-width: 120px;
+	max-height: 120px;
 }
 
 .thumbnail:hover {
@@ -159,3 +159,12 @@ form input.invalid {
 	text-indent: 0;
 }
 
+.order {
+	background-color : #e0e0eb;
+}
+
+.test{
+    
+    height:200px;
+    overflow:hidden;
+}

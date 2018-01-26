@@ -1,6 +1,8 @@
 package fr.dta.scah.user.controller;
 
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.List;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.dta.scah.exception.NotUniqueCreationException;
 import fr.dta.scah.exception.PreconditionalException;
+import fr.dta.scah.order.model.Order;
 import fr.dta.scah.security.service.SecurityService;
 import fr.dta.scah.user.model.User;
 import fr.dta.scah.user.service.UserService;
@@ -32,6 +35,7 @@ public class UserController {
 
 	@Autowired
 	SecurityService securityService;
+	
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Long createUser(@RequestBody @Valid User user, BindingResult bindingResult) throws SQLException {
@@ -66,23 +70,6 @@ public class UserController {
 			throw new NotUniqueCreationException(code, description, bindingResult);
 		}
 	}
-	
-//	public void createNotUniqueCreationExeption(String key, User user) {
-//        BindingResult bindingResult = new BeanPropertyBindingResult(user, user.getClass().getSimpleName());
-//        String[] codes = new String[1];
-//        codes[0] = key;
-//        bindingResult.addError(new ObjectError(user.getClass().getSimpleName(), codes, null, null));
-//        throw new NotUniqueCreationException(key, user.getEmail(), bindingResult);
-//    }
-//	
-//	public void createPreconditionalFailedExeption(String key, User user) {
-//        BindingResult bindingResult = new BeanPropertyBindingResult(user, user.getClass().getSimpleName());
-//        String[] codes = new String[1];
-//        codes[0] = key;
-//        bindingResult.addError(new ObjectError(user.getClass().getSimpleName(), codes, null, null));
-//        throw new PreconditionalException(bindingResult);
-//    }
-
 
 	@RequestMapping(value="connectedUser", method = RequestMethod.GET)
 	public User getConnectedUser() {
@@ -93,5 +80,11 @@ public class UserController {
 	public Long editUser(@RequestBody @Valid User user) {
 		userService.edit(user);
 		return user.getId();
+	}
+	
+	@RequestMapping(value = "/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE ) 
+	public List<Order> getUserOrders() {
+		User user = securityService.getConnectedUser();
+		return user!=null ? userService.findAllOfUserWithProducts(user.getId()): Collections.<Order>emptyList();
 	}
 }

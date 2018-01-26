@@ -18,16 +18,16 @@ VALUES
  (nextval('seq_product'), true, 'Melanie, jeune femme quelque peu superficielle, rencontre chez un marchand d''oiseaux un brillant et séduisant avocat qui recherche des inséparables.', 'Hitchcock-Les-oiseaux.jpg', 0, 12.75, 5, 'Les oiseaux', 'DVD'),
  (nextval('seq_product'), true, 'Scottie est sujet au vertige, ce qui lui porte préjudice dans son métier de policier. Rendu responsable de la mort d''un de ses collègues, il décide de quitter la police. Une ancienne relation le contacte afin qu''il suive sa femme, possédée selon lui par l''esprit de son aïeule. Scottie s''éprend de la jeune femme et se trouve ballotté par des évènements qu''il ne peut contrôler.', 'Hitchcock-Sueurs-froides.jpg', 0, 12.75, 5, 'Sueurs froides', 'DVD'),
  (nextval('seq_product'), true, 'Au cœur de Los Angeles, une actrice en devenir prénommée Mia sert des cafés entre deux auditions. De son côté, Sebastian, passionné de jazz, joue du piano dans des clubs miteux pour assurer sa subsistance', 'La-La-Land-DVD.jpg', 0, 18.75, 5, 'La La Land', 'DVD'),
- (nextval('seq_product'), true, 'La plus courte rencontre du cinéma', 'Hitchcock-Les-39-marches.jpg', 0, 16.85, 7, 'Les 39 marches', 'DVD'),
- (nextval('seq_product'), true, 'Alicia, fille d''un espion nazi, mène une vie dépravée. Devlin lui propose de travailler pour les Etats-Unis afin de réhabiliter son nom.', 'Hitchcock-Les-enchaines.jpg', 0, 15.00, 8, 'Les enchainés', 'DVD'),
+ (nextval('seq_product'), true, 'La plus courte rencontre du cinéma', 'Les-39-marches.jpg', 0, 16.85, 7, 'Les 39 marches', 'DVD'),
+ (nextval('seq_product'), true, 'Alicia, fille d''un espion nazi, mène une vie dépravée. Devlin lui propose de travailler pour les Etats-Unis afin de réhabiliter son nom.', 'Les-enchaines.jpg', 0, 15.00, 8, 'Les enchainés', 'DVD'),
  (nextval('seq_product'), true, 'Un classique indescriptible', 'Shining.jpg', 0, 13.85, 80, 'Shining', 'DVD'),
  (nextval('seq_product'), true, 'La révolte comme on aimerait la voir plus souvent', 'Spartacus.jpg', 0, 11.30, 4, 'Spartacus', 'DVD'),
- (nextval('seq_product'), true, 'De l''Indochine bien comme on l''aime', '13-edition-Standard-Digisleeve.jpg', 0, 16.85, 2, 'Indochine - Les enfants', 'CD'),
+ (nextval('seq_product'), true, 'De l''Indochine bien comme on l''aime', '13-Edition-Standard-Digisleeve.jpg', 0, 16.85, 2, 'Indochine - Les enfants', 'CD'),
  (nextval('seq_product'), true, 'RIP', '50-Plus-Belles-Chansons.jpg', 0, 16.85, 7, 'Johnny - le best-of post thune', 'CD'),
  (nextval('seq_product'), true, 'Digne de son père, toujours impressionnant de technique et de poêsie', 'Amour-Chien-Fou.jpg', 0, 9.99, 7, 'Arthur H - Amour Chien Fou', 'CD'),
  (nextval('seq_product'), true, 'Incontournable série de chansons plus admirables les unes que les autres', 'Au-cafe-du-canal.jpg', 0, 16.85, 1, 'Les Ogres de Barback - Au café du canal', 'CD'),
  (nextval('seq_product'), true, 'Enfin France Gall pas trop jeune', 'france-gall.jpg', 0, 24.99, 5, 'France Gall', 'CD'),
- (nextval('seq_product'), true, 'Un des pilliers de la chanson Française', 'la-meme-tribu.jpg', 0, 16.85, 6, 'Eddy Mitchell', 'CD'),
+ (nextval('seq_product'), true, 'Un des pilliers de la chanson Française', 'La-meme-tribu.jpg', 0, 16.85, 6, 'Eddy Mitchell', 'CD'),
  (nextval('seq_product'), true, 'Encore un pillier de la chanson Française', 'Libertine.jpg', 0, 16.85, 7, 'Mylene Farmer', 'CD'),
  (nextval('seq_product'), true, 'Certainement la meilleure innovation de l''année', 'Nues.jpg', 0, 25.90, 9, 'Les Brigittes - Nues', 'CD'),
  (nextval('seq_product'), true, 'Charlotte Gainsbourg confirme aujourd''hui les espoirs placés dans sa prise de parole francophone.', 'cha-g.jpg', 0, 12.50, 5, 'Charlotte Gainsbourg', 'CD'),
@@ -45,23 +45,5 @@ VALUES
  (nextval('seq_product'), true, 'South park aussi insupportable sur tv que sur écran d''ordinateur', 'south-park-le-baton-de-la-verite.jpg', 0, 24.99, 15, 'South Park - Le baton de la verité', 'Jeux vidéo'),
  (nextval('seq_product'), true, 'L''incontournable Mario qui repart dans de nouvelles aventures', 'super-mario-odyssey.jpg', 0, 24.99, 15, 'Super Mario Odyssey', 'Jeux vidéo'),
  (nextval('seq_product'), true, 'Un excellent simulateur de randonnée', 'uncharted.jpg', 0, 24.99, 15, 'Uncharted côté femmes', 'Jeux vidéo');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
