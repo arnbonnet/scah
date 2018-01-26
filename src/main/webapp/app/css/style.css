@@ -113,9 +113,13 @@ fieldset {
 }
 
 span.req {
-    color:maroon;
+    color: maroon;
     font-size: 20px;
-} 
+}
+
+.errorMessage {
+	color: #b30000;
+}
 
 form input.valid {
 	border-color : green;

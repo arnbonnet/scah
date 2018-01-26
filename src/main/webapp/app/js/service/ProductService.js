@@ -16,7 +16,6 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 	};
 
 	var getProductsByTitleBody = function(productTitle) {
-		console.log('get products by tittle', productTitle);
 		var promiseGetByTitle = $http.get('/api/products/search', {params:{title:productTitle}});
 		return promiseGetByTitle.then(function(response) {
 			return response.data;
@@ -34,7 +33,6 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 	
 	var setSearchBody = function(title) {
 		products = [];
-		console.log('setSearchBody', title);
 		getProductsByTitleBody(title).then(function(response) {
 			products = response;
 		});

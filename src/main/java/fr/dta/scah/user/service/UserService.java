@@ -1,5 +1,6 @@
 package fr.dta.scah.user.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -30,7 +31,7 @@ public class UserService {
 		return userRepository.findAll();
 	}
 	
-	public void create(User user) {
+	public void create(User user) throws SQLException {
 		//cryptage du mot de passe
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		
