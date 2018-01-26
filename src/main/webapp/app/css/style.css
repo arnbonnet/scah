@@ -117,12 +117,16 @@ span.req {
     font-size: 20px;
 } 
 
-form input.valid {
+.createProductForm.input.valid {
 	border-color : green;
 }
 
-form input.invalid {
+.createProductForm input.ng-invalid {
 	border-color : red;
+}
+
+.inputInvalidMessage {
+	color : red;
 }
 
 /* Hiding the checkbox, but allowing it to be focused */
@@ -158,3 +162,20 @@ form input.invalid {
 .order {
 	background-color : #e0e0eb;
 }
+
+.img-thumbnail {
+	height: 250px;
+	widht: 300px;
+	margin-top: 30px;
+	margin-right: 50px;
+	margin-left: 50px;
+}
+
+input#fichier.uploadImage {
+	margin-left: 50px;
+}
+
+span.uploadImage {
+	margin-left: 30px;
+}
+

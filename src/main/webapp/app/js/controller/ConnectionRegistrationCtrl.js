@@ -11,8 +11,8 @@ angular.module('app').controller('ConnectionRegistrationCtrl', function($scope, 
 	}
 
 	$scope.login = function(email, password) {
-		console.log('login', email, password );
+		//console.log('login', email, password );
 		UserService.login(email, password);
 	};
-
+	
 });

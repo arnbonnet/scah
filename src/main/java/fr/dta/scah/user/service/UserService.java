@@ -35,4 +35,8 @@ public class UserService {
 	public void edit(User user) {
 		userRepository.saveAndFlush(user);
 	}
+
+	public User getById(Long id) {
+		return userRepository.findOne(id);
+	}
 }

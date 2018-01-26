@@ -33,7 +33,10 @@ app.config(function($routeProvider) {
 		templateUrl:'./app/template/user_orders.html',
 		controller:'CartCtrl'
 	})
-	
+	.when('/profile',{
+		templateUrl:'./app/template/profile.html',
+		controller:'ProfileCtrl'
+	})
 	.otherwise({
 		redirectTo:'/'
 	})

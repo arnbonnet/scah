@@ -50,15 +50,15 @@ public class User implements Serializable {
 	@Email
 	private String email;
 	
+	@NotBlank
+	private String password;
+	
 	private boolean admin = false;
 	
 	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Order> orders = new ArrayList<>();
 	
-	@NotBlank
-	private String password;
-
 	public Long getId() {
 		return id;
 	}

@@ -1,4 +1,5 @@
-angular.module('app').controller('ProductCtrl', function($scope, ProductService, $routeParams) {
+angular.module('app').controller('ProductCtrl', function($scope, ProductService, $location, $routeParams) {
+
 	$scope.data = {
 		product : {},
 	};
@@ -8,10 +9,12 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 		console.log($scope.data.product);
 		return ProductService.addProduct($scope.data.product).then(function(response){
 			console.log('product creation success');
+			$location.path('/admin_products');
 			return response.data;
 		}, function(response){
 			console.log("error creating product" + response.data)
 		});
+		
 	};
 	
 	/*Récupère tous les produits de la BDD*/

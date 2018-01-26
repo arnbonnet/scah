@@ -33,7 +33,7 @@ public class OrderService {
 	}
 	
 //	public Order getById(Long idOrder) {
-//		Order order = orderRepository.findOne(idOrder);
+//		Order order = orderRepository.findOneById(idOrder);
 //		return order;
 //	}
 	
