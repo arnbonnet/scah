@@ -66,4 +66,13 @@ public class ProductQuantity implements Serializable {
 		this.product = product;
 	}
 	
+	public String toString() {
+		return "[QTE "
+				+ this.id
+				+ " : " + this.quantity
+				+ " / " + (this.order==null?null:this.order.getId())
+				+ " / " + (this.product==null?null:this.product.getId())
+				+ "]";
+	}
+	
 }

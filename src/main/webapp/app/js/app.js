@@ -33,7 +33,6 @@ app.config(function($routeProvider) {
 		templateUrl:'./app/template/user_orders.html',
 		controller:'UserOrdersCtrl'
 	})
-	
 	.otherwise({
 		redirectTo:'/'
 	})
