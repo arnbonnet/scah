@@ -1,14 +1,24 @@
-angular.module('app').factory('ProductService', ['$http', '$location', function($http, $location) {
-	var promiseProducts = $http.get('/api/products').then(function(response) {
-		return response.data;
-	});
+angular.module('app').factory('ProductService', ['$http', '$location', 'UserService', function($http, $location, UserService) {
 	
-	var reloadBody = function(){
-		console.log('relaod function')
-		promiseProducts = $http.get('/api/products').then(function(response) {
-			return response.data;
+	var promiseProducts;
+	var updatePromiseProducts = function() {
+		if(UserService.getRole() === 'admin') {
+			return promiseProducts = $http.get('/api/products').then(function(response) {
+				return response.data;
+			});
+		} else {
+			return promiseProducts = $http.get('/api/products/search', {params:{activated:true}}).then(function(response) {
+				return response.data;
+			});
+		}
+	};
+	updatePromiseProducts();
+	
+	var reloadBody = function() {
+		return updatePromiseProducts().then(function(response) {
+			products = response;
+			return response;
 		});
-		return promiseProducts;
 	}
 	
 	var getAllProductBody = function() {
@@ -16,7 +26,12 @@ angular.module('app').factory('ProductService', ['$http', '$location', function(
 	};
 
 	var getProductsByTitleBody = function(productTitle) {
-		var promiseGetByTitle = $http.get('/api/products/search', {params:{title:productTitle}});
+		var promiseGetByTitle;
+		if(UserService.getRole() === 'admin') {
+			promiseGetByTitle = $http.get('/api/products/search', {params:{title:productTitle}});
+		} else {
+			promiseGetByTitle = $http.get('/api/products/search', {params:{title:productTitle, activated:true}});
+		}
 		return promiseGetByTitle.then(function(response) {
 			return response.data;
 		});

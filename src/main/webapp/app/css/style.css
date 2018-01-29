@@ -168,3 +168,8 @@ form input.invalid {
     height:200px;
     overflow:hidden;
 }
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}

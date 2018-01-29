@@ -18,10 +18,10 @@
 		<label  class="btn btn-primary">
 			Musique <input  type="checkbox" class="badgebox"  ng-model="category4" ng-checked="true" ng-init='category4=true'>
 			<span class="badge">&check;</span>
-		</label> 
+		</label>
 	</div>
 	<div class="col-sm-12 list-products">
-		<div class="col-md-4 " data-ng-repeat="product in ListProducts() | searchProduct : category1:category2:category3:category4">
+		<div class="col-md-4" ng-class="{'disabled':!product.activated}" data-ng-repeat="product in ListProducts() | searchProduct : category1:category2:category3:category4">
 			<a href="#!/product/{{product.id}}" class="nounderline">
 				<span class="thumbnail">
 					<h3 class="pull-left price" >{{product.price | currency : '' : 2}} &euro;</h3>

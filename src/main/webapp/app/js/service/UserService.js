@@ -1,4 +1,4 @@
-angular.module('app').factory('UserService', ['$http', '$location',function($http, $location) {
+angular.module('app').factory('UserService', ['$http', '$location', '$injector', function($http, $location, $injector) {
 	
 	var role = '';
 	var authenticationFailed = false;
@@ -53,6 +53,8 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 					return calculateRole().then(function(){
 						$location.path('/');
 						authenticationFailed = false;
+						var productService = $injector.get('ProductService');
+						productService.reload();
 					}); // Le loggage est effectif lorsque l'on a également rechargé le role
 				},
 				function() {
@@ -68,7 +70,10 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 		logoutPromise.then(
 				function() {
 					$location.path('/#!logout');
-					return calculateRole(); // Le déloggage est effectif lorsque l'on a également rechargé le role
+					return calculateRole().then(function() {
+						var productService = $injector.get('ProductService');
+						productService.reload();
+					}); // Le déloggage est effectif lorsque l'on a également rechargé le role
 				},
 				function() {
 					console.log('error UserService - logout');
