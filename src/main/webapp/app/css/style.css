@@ -26,6 +26,7 @@
 	heigth: 400px;
 	width: auto;
 }
+
 .thumbnail h4 {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -121,30 +122,23 @@ span.req {
 	color: #b30000;
 }
 
-form input.valid {
-	border-color : green;
-}
-
-form input.invalid {
-	border-color : red;
+.inputInvalidMessage {
+	color : red;
 }
 
 /* Hiding the checkbox, but allowing it to be focused */
-.badgebox
-{
+.badgebox {
     opacity: 0;
 }
 
-.badgebox + .badge
-{
+.badgebox + .badge{
     /* Move the check mark away when unchecked */
     text-indent: -999999px;
     /* Makes the badge's width stay the same checked and unchecked */
 	width: 27px;
 }
 
-.badgebox:focus + .badge
-{
+.badgebox:focus + .badge {
     /* Set something to make the badge looks focused */
     /* This really depends on the application, in my case it was: */
     
@@ -153,8 +147,7 @@ form input.invalid {
     /* Taking the difference out of the padding */
 }
 
-.badgebox:checked + .badge
-{
+.badgebox:checked + .badge {
     /* Move the check mark back when checked */
 	text-indent: 0;
 }
@@ -163,13 +156,40 @@ form input.invalid {
 	background-color : #e0e0eb;
 }
 
-.test{
-    
-    height:200px;
-    overflow:hidden;
+.img-thumbnail {
+	height: 250px;
+	widht: 300px;
+	margin-top: 30px;
+	margin-right: 50px;
+	margin-left: 50px;
+}
+
+input#fichier.uploadImage {
+	margin-left: 50px;
+}
+
+span.uploadImage {
+	margin-left: 30px;
 }
 
 .disabled {
     pointer-events: none;
     opacity: 0.4;
+}
+
+.modal-body {
+	font-size: 16px;
+}
+.orderPrice{
+	vertical-align:middle;
+	display:table-cell;
+	text-align: center;
+	font-size: 30px;
+}
+
+.orderNum{
+	display:table-cell;
+	text-align: center;
+	font-size: 30px;
+	color : #0099cc;
 }

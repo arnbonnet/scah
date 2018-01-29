@@ -1,4 +1,4 @@
-angular.module('app').factory('CartService', function($cookies){
+angular.module('app').factory('CartService', function($cookies, $http){
 
 	function getCart(){
 		var cart = $cookies.getObject('myCart');
@@ -45,7 +45,7 @@ angular.module('app').factory('CartService', function($cookies){
 		return cart;
 	}
 	
-	//supprime un élément du panier. Le porduit est passé en paramètre, 
+	//supprime un élément du panier. Le produit est passé en paramètre, 
 	//on vérifie si le produit est bien dans le panier, puis on cherche
 	//l'index du produit dans le tableau et on le supprime.On met à jour
 	//Les cookies, et On retourne le nouveau panier.
@@ -60,11 +60,19 @@ angular.module('app').factory('CartService', function($cookies){
 		return cart;
 	}
 	
+	var createOrderBody = function (cart){
+		var promise = $http.post('/api/orders', cart, {});
+		promise.then(function(response){
+			return response.data;});
+		return promise;
+	}
+	
 	return {
 		addToCart : addToCartBody,
 		getCartNbItem : getCartNbItemBody,
 		getCartItems : getCartItemsBody,
 		deleteAllCart : deleteAllCartBody,
-		deleteOneItem : deleteOneItemBody
+		deleteOneItem : deleteOneItemBody,
+		createOrder : createOrderBody
 	}
 })

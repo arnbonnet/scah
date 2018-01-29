@@ -11,7 +11,7 @@ app.config(function($routeProvider) {
 	})
 	.when('/editProduct/:id', {
 		templateUrl:'./app/template/edit_product.html',
-		controller:'EditProductCtrl'
+		controller:'EditProductController'
 	})
 	.when('/admin_products', {
 			templateUrl : './app/template/Array_products_admin.html',
@@ -32,6 +32,10 @@ app.config(function($routeProvider) {
 	.when('/orders',{
 		templateUrl:'./app/template/user_orders.html',
 		controller:'UserOrdersCtrl'
+	})
+	.when('/profile',{
+		templateUrl:'./app/template/profile.html',
+		controller:'ProfileCtrl'
 	})
 	.otherwise({
 		redirectTo:'/'

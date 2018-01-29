@@ -1,0 +1,121 @@
+<div x-ng-switch="modify">
+
+	<div x-ng-switch-when="false" class="row">
+		<div class="pull-right">
+			<span x-ng-click="toggleModify()" class="fa fa-pencil-square-o fa-2x flyover" aria-hidden="true"></span>
+		</div>
+		<div class="col-md-10">
+			<form novalidate>
+				<fieldset>
+					<legend class="text-center">Vos informations</legend>
+					<div class="form-group row"> 	 
+					    <label class="col-sm-2 col-form-label"> <strong> Nom: </strong> </label>
+					    <div class="col-sm-10">
+					    	<span>{{user.firstname}}</span>    
+					    </div> 
+					</div>
+			
+					<div class="form-group row">
+					    <label class="col-sm-2 col-form-label"> <strong> Pr&eacute;nom: </strong> </label> 
+						<div class="col-sm-10">
+					    	<span>{{user.lastname}}</span>    
+					    </div> 
+					</div>
+					
+					<div class="form-group row">
+					    <label class="col-sm-2 col-form-label"> <strong> Adresse: </strong> </label>
+					    <div class="col-sm-10">
+					    	<span>{{user.address}}</span>    
+					    </div> 
+					</div>
+					
+					<div class="form-group row">
+			       		<label class="col-sm-2 col-form-label"> <strong> Num&eacute;ro de téléphone: </strong> </label>
+			           	<div class="col-sm-10">
+					    	<span>{{user.phone}}</span>    
+					    </div> 
+					</div>
+					
+					<div class="form-group row">
+					    <label class="col-sm-2 col-form-label"> <strong> Adresse Mail: </strong> </label>   
+					    <div class="col-sm-10">
+					    	<span>{{user.email}}</span>    
+					    </div> 
+					</div>
+			
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"> <strong>Mot de passe:</strong>  </label>
+					    <div class="col-sm-10">
+					    	<span>{{user.password}}</span>    
+					    </div> 
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+		 
+	<div x-ng-switch-when="true" class= "row">
+		<div class="col-md-10">
+			<form name="form" novalidate>
+				<fieldset>
+					<legend class="text-center">Vos information</legend>
+					<div class="form-group row"> 	 
+					    <label class="col-sm-2 col-form-label" > <strong> Nom: </strong> </label>
+					    <div class="col-sm-10">
+					    	<input x-ng-model="user.firstname" class="form-control" type="text" required />    
+					    </div> 
+					</div>
+			
+					<div class="form-group row">
+					    <label class="col-sm-2 col-form-label">  <strong> Pr&eacute;nom: </strong>  </label> 
+					    <div class="col-sm-10">
+					    	<input x-ng-model="user.lastname" class="form-control" type="text" required />  
+						</div>
+					</div>
+					
+					<div class="form-group row">
+					    <label class="col-sm-2 col-form-label">  <strong> Adresse: </strong>  </label> 
+					    <div class="col-sm-10">
+					    	<input x-ng-model="user.adress" class="form-control" type="text" required /> 
+					    </div>
+					</div>
+					
+					<div class="form-group row">
+			       		<label class="col-sm-2 col-form-label">  <strong> Num&eacute;ro de téléphone: </strong> </label>
+			       		<div class="col-sm-10">
+			           		<input x-ng-model="user.phone" type="text" class="form-control phone" required/> 
+			           	</div>
+					</div>
+					
+					<div class="form-group row">
+					    <label class="col-sm-2 col-form-label"> <strong> Adresse Mail: </strong> </label> 
+					    <div class="col-sm-10">
+					    	<input x-ng-model="user.email" class="form-control" type="email" required /> 
+					    </div>  
+					</div>
+			
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"> <strong>Mot de passe:</strong>  </label>
+						<div class="col-sm-10">
+					    	<input x-ng-model="user.password" type="password" class="form-control inputpass" required />
+					    </div>
+					</div>
+			
+					<div class="form-group">
+					    <button class="btn btn-primary" type="submit" x-ng-click="editProfile(user)" >Sauvegarde</button>
+					</div>
+				
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<ul class="pager">
+		<li class="previous">
+			<a href="#!/"><span aria-hidden="true">&larr;</span> Retour</a>
+		</li>
+	</ul>
+</div>
+

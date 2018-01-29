@@ -1,6 +1,7 @@
-angular.module('app').factory('UserService', ['$http', '$location', '$injector', function($http, $location, $injector) {
+angular.module('app').factory('UserService', ['$http', '$location', '$injector' ,function($http, $location, $injector) {
 	
 	var role = '';
+	var user = {};
 	var authenticationFailed = false;
 	var creationFailedEmail = false;
 	var creationFailedPhone = false;
@@ -9,13 +10,20 @@ angular.module('app').factory('UserService', ['$http', '$location', '$injector',
 	function calculateRole(){ 
 		return $http.get('/api/users/connectedUser').then(function(response) {
 			if(response.data.admin) {
+				user = response.data;
 				role = 'admin';
 			} else if(response.data.admin === false) {
+				user = response.data;
 				role = 'user';
 			} else {
 				role = '';
 			}
 		});
+	}
+	
+	var getUserBody = function() {
+		user.password="*********";
+		return user;
 	}
 
 	var getRoleBody = function() {
@@ -102,14 +110,42 @@ angular.module('app').factory('UserService', ['$http', '$location', '$injector',
 		}
 	};
 	
+	var editUserBody = function(user) {
+		var promiseEditUser = $http.post('/api/users', user);
+		promiseEditUser.then(
+			function(response) {	
+				console.log(response);
+				$location.path('/profile/');
+			},
+			function(response) {
+				console.log('ERROR - editUser UserService');
+			}
+		);
+		return promiseEditUser;
+	}
+	
+	var checkConnectionBody = function(acceptedRoles, redirectOnBadRole){
+		
+		var role = getRoleBody();
+		if(acceptedRoles.indexOf(role)==-1){
+			// je ne suis pas connecté avec le bon role, donc redirection vers la page de connexion
+			$location.path(redirectOnBadRole);
+		}
+		else {
+			$location.path('/connection');
+		}
+	}
+	
 	return {
 		getRole : getRoleBody,
 		login : loginBody,
 		logout : logoutBody,
 		createUser : createUserBody,
 		isAuthenticationFailed : isAuthenticationFailedBody,
+		editUser : editUserBody,
+		checkConnection : checkConnectionBody,
+		getUser : getUserBody,
 		isCreationFailed : isCreationFailedBody,
-		getError : getErrorBody,
+		getError : getErrorBody
 	}
 }]);
-

@@ -10,9 +10,13 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.MediaType;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -81,10 +85,11 @@ public class UserController {
 		userService.edit(user);
 		return user.getId();
 	}
-	
+
 	@RequestMapping(value = "/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE ) 
 	public List<Order> getUserOrders() {
 		User user = securityService.getConnectedUser();
 		return user!=null ? userService.findAllOfUserWithProducts(user.getId()): Collections.<Order>emptyList();
 	}
+
 }

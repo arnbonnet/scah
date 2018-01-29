@@ -1,4 +1,5 @@
-angular.module('app').controller('ProductCtrl', function($scope, ProductService, $routeParams) {
+angular.module('app').controller('ProductCtrl', function($scope, ProductService, $location, $routeParams) {
+	
 	$scope.data = {
 		product : {},
 	};
@@ -8,10 +9,12 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 		console.log($scope.data.product);
 		return ProductService.addProduct($scope.data.product).then(function(response){
 			console.log('product creation success');
+			$location.path('/admin_products');
 			return response.data;
 		}, function(response){
 			console.log("error creating product" + response.data)
 		});
+		
 	};
 	
 	$scope.ListProducts = function() {
@@ -26,27 +29,22 @@ angular.module('app').controller('ProductCtrl', function($scope, ProductService,
 		    var reader = new FileReader();
 		    $scope.data.product.image = input.files[0].name;
 		    
-
 		    reader.onload = function(e) {
 		      $('#img').attr('src', e.target.result);
 		    }
 
 		    reader.readAsDataURL(input.files[0]);
-		  }
 		}
+	}
 
-		$("#fichier").change(function() {
-			
-		  readURL(this);
-		});
+	$("#fichier").change(function() {
+		readURL(this);
+	});
 		
-		$scope.uploadFile = function() {
-			var file = document.getElementById('fichier').files[0];
-			ProductService.uploadFile(file);
-			console.log("passage dans upload file");
-		}
-		
-	
-		
+	$scope.uploadFile = function() {
+		var file = document.getElementById('fichier').files[0];
+		ProductService.uploadFile(file);
+		console.log("passage dans upload file");
+	}
 
 });

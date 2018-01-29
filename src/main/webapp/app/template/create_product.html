@@ -1,70 +1,56 @@
-<h2>Cr&eacuteation d'un produit</h2>
+<meta charset="UTF-8">
+<h2>Création d'un produit</h2>
 
+<form class="createProductForm" name="createProductForm" novalidate>
+
+	<div class="row">
 	
-<form name="createProductForm"  novalidate>
-
-<div class="row">
-
-	<div class="col-md-6">
+		<div class="col-md-6">
 			<label for="name">Titre du produit:</label>
-			<input type="text" class="form-control" id="name" x-ng-model="data.product.title" x-ng-bind="data.product.title" required>
+			<input type="text" class="form-control" id="title" x-ng-model="data.product.title" required> <br>
 			
 			<label for="description">Description:</label>
-			<textarea  class="form-control" id="description" x-ng-model="data.product.description" x-ng-bind="data.product.description" required></textarea>
+			<textarea  class="form-control" id="description" x-ng-model="data.product.description" required></textarea> <br>
 			
 			<label for="stock">Stock:</label>
-			<input type="number" class="form-control" id="stock" x_ng-min="0" x-ng-model="data.product.stock" x-ng-bind="data.product.stock" required>
-				
+			<span x-ng-show="createProductForm.stock.$invalid && createProductForm.stock.$dirty" class="inputInvalidMessage">Le stock doit être positif</span>
+			<input type="number" class="form-control" name="stock" x-ng-min="0" x-ng-model="data.product.stock" required> <br>
+						
 			<label for="price">Prix:</label>
-			<input type="number" class="form-control" id="price" x_ng-min="0" x-ng-max="1000" step=".01" x-ng-model="data.product.price" x-ng-bind="data.product.price" required>
+			<span x-ng-show="createProductForm.price.$invalid && createProductForm.price.$dirty" class="inputInvalidMessage">Le prix doit être positif</span>
+			<input type="number" class="form-control" name="price" x-ng-min="0.1" x-ng-max="1000" step=".01" x-ng-model="data.product.price" required><br>
 			
 			<label for="type">Type</label>
 			<select class="form-control" id="type" x-ng-model="data.product.category" required>
-			  <!-- <option ng-repeat="category in data.categories" value="{{category.id}}">{{category.name}}</option> -->
 				<option value="Livre">Livre</option>
 				<option value="DVD">DVD</option>
-				<option value="Jeux Vid&eacuteos">Jeux Vid&eacuteos</option>
-				<option value="Musique">Musique</option>
+				<option value="Jeux vidéo">Jeux Vidéos</option>
+				<option value="CD">Musique</option>
 			</select>
-			
+				
 			<div>
 				<label for="activated">Activate:</label>
-				<input type="checkbox" class="" id="activated"  x-ng-model="data.product.activated" x-ng-bind="data.product.activated">
-			</div>
-				
-			
-			<div ng-show="createProductForm.price.$invalid">
-			Invalid:
-			<span ng-show="createProductForm.price.$error">This is not a valid price.</span>
+				<input type="checkbox" class="" id="activated" x-ng-model="data.product.activated" >
 			</div>
 		</div>
-		
-
-		<div class="col-md-6 col-middle">
 			
-		<div>
-			<form method="POST" enctype="multipart/form-data" action="/">
+		<div class="col-md-6 col-middle">	
+			<div>
+				<form method="POST" enctype="multipart/form-data" action="/">	
+					<span class ="uploadImage">Le poids et le format maximal: 512 Mo / 300cm x 300cm </span>
+					<img id="img" src="#" alt="votre image" class="img-thumbnail" width="304" height="236"/>  
+					<input type='file' id="fichier" name="fichier" x-ng-files="test($files)" class="uploadImage"/>
+				</form>
 				
-				<label for="image">Image</label>
-				
-				  <input type='file' id="fichier" class="btn"  name="fichier" ng-files="test($files)"/>
-				  <img id="img" src="#" alt="votre image" class="img-thumbnail"  width="304" height="236"/>
-				  
-
-			</form>
+			</div>
 		</div>
-	
 	</div>
 
-</div>
-
-	
-<div class="row" style="margin-top:20px">
-	<div class="col-md-12 text-right " style="margin-bottom:15px"> 
-		<button class="btn btn-primary " x-ng-click="createProduct()" >Cr&eacuteer</button>
-		<a href="#!" id="cancel" name="cancel" class="btn btn-default ">Annuler</a>
+	<div class="row" style="margin-top:20px">
+		<div class="col-md-12 text-right " style="margin-bottom:15px"> 
+			<button class="btn btn-primary" x-ng-click="createProduct()" x-ng-disabled="createProductForm.$invalid">Cr&eacute;er</button>
+			<a href="#!/admin_products" id="cancel" name="cancel" class="btn btn-default ">Annuler</a>
+		</div>
 	</div>
-</div>
-		
 
 </form>
