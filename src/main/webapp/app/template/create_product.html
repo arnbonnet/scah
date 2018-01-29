@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<h2>Cr&eacuteation d'un produit</h2>
+<h2>Création d'un produit</h2>
 
 <form class="createProductForm" name="createProductForm" novalidate>
 
@@ -13,16 +13,15 @@
 			<textarea  class="form-control" id="description" x-ng-model="data.product.description" required></textarea> <br>
 			
 			<label for="stock">Stock:</label>
-			<span x-ng-show="createProductForm.stock.$invalid && createProductForm.stock.$dirty" class="inputInvalidMessage">Le stock doit Ãªtre positif</span>
+			<span x-ng-show="createProductForm.stock.$invalid && createProductForm.stock.$dirty" class="inputInvalidMessage">Le stock doit être positif</span>
 			<input type="number" class="form-control" name="stock" x-ng-min="0" x-ng-model="data.product.stock" required> <br>
 						
 			<label for="price">Prix:</label>
-			<span x-ng-show="createProductForm.price.$invalid && createProductForm.price.$dirty" class="inputInvalidMessage">Le prix doit Ãªtre positif</span>
+			<span x-ng-show="createProductForm.price.$invalid && createProductForm.price.$dirty" class="inputInvalidMessage">Le prix doit être positif</span>
 			<input type="number" class="form-control" name="price" x-ng-min="0.1" x-ng-max="1000" step=".01" x-ng-model="data.product.price" required><br>
 			
 			<label for="type">Type</label>
 			<select class="form-control" id="type" x-ng-model="data.product.category" required>
-			  <!-- <option ng-repeat="category in data.categories" value="{{category.id}}">{{category.name}}</option> -->
 				<option value="Livre">Livre</option>
 				<option value="DVD">DVD</option>
 				<option value="Jeux vidéo">Jeux Vidéos</option>
@@ -31,7 +30,7 @@
 				
 			<div>
 				<label for="activated">Activate:</label>
-				<input type="checkbox" class="" id="activated"  x-ng-model="data.product.activated" >
+				<input type="checkbox" class="" id="activated" x-ng-model="data.product.activated" >
 			</div>
 		</div>
 			
@@ -49,7 +48,7 @@
 
 	<div class="row" style="margin-top:20px">
 		<div class="col-md-12 text-right " style="margin-bottom:15px"> 
-			<button class="btn btn-primary" x-ng-click="createProduct()" x-ng-disabled="createProductForm.$invalid">Cr&eacuteer</button>
+			<button class="btn btn-primary" x-ng-click="createProduct()" x-ng-disabled="createProductForm.$invalid">Cr&eacute;er</button>
 			<a href="#!/admin_products" id="cancel" name="cancel" class="btn btn-default ">Annuler</a>
 		</div>
 	</div>

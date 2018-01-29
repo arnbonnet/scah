@@ -1,14 +1,18 @@
 /**
- * Controller de la vue recherche produit de l'admin, avec affichage de tous les prpduits sous la forme de tableaux
+ * Controller de la vue recherche produit de l'admin, avec affichage de tous les produits sous la forme de tableaux
  */
 
-app.controller('ArrayProductsAdminController', function($scope, ProductService, UserService, $uibModal){
+app.controller('ArrayProductsAdminController', function($scope, ProductService, $uibModal){
 	
 	$scope.advancedResearch = false;
 	$scope.activate = false;
-	$scope.ListProduct = [];
+	$scope.ListProductData = [];
 	$scope.check = [];
 	$scope.switche;
+	
+	$scope.ListProduct = function() {
+		return $scope.ListProductData;
+	}
 	
 	// fonction qui affiche la recherche avancée
     $scope.showAdvancedResearch = function() {
@@ -27,8 +31,8 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     
     //gère l'affichage des deux boutons suppresion et activation.désativation
     function initData(data){
-		$scope.ListProduct = data;
-		for(var key in $scope.ListProduct){
+		$scope.ListProductData = data;
+		for(var key in $scope.ListProductData){
 			$scope.check[key]=false;
 		}
 	}

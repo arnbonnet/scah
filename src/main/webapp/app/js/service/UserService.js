@@ -23,7 +23,6 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 	
 	var getUserBody = function() {
 		user.password="*********";
-		console.log(user.password);
 		return user;
 	}
 
@@ -121,8 +120,10 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 	}
 	
 	var checkConnectionBody = function(acceptedRoles, redirectOnBadRole){
+		
 		var role = getRoleBody();
 		if(acceptedRoles.indexOf(role)==-1){
+			console.log("Je suis Visitor");
 			// je ne suis pas connecté avec le bon role, donc redirection vers la page de connexion
 			$location.path(redirectOnBadRole);
 		}
