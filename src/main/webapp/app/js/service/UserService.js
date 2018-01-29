@@ -127,7 +127,7 @@ angular.module('app').factory('UserService', ['$http', '$location',function($htt
 			$location.path(redirectOnBadRole);
 		}
 		else {
-			$location.path('/');
+			$location.path('/connection');
 		}
 	}
 	

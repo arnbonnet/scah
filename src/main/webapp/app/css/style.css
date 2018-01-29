@@ -191,6 +191,13 @@ span.uploadImage {
 	vertical-align:middle;
 	display:table-cell;
 	text-align: center;
-	font-size: 40px;
+	font-size: 30px;
+}
+
+.orderNum{
+	display:table-cell;
+	text-align: center;
+	font-size: 30px;
+	color : #0099cc;
 }
 
