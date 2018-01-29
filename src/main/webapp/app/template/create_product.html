@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <h2>Cr&eacuteation d'un produit</h2>
 
 <form class="createProductForm" name="createProductForm" novalidate>
@@ -12,11 +13,11 @@
 			<textarea  class="form-control" id="description" x-ng-model="data.product.description" required></textarea> <br>
 			
 			<label for="stock">Stock:</label>
-			<span x-ng-show="createProductForm.stock.$invalid && createProductForm.stock.$dirty" class="inputInvalidMessage">Le stock doit être positif</span>
+			<span x-ng-show="createProductForm.stock.$invalid && createProductForm.stock.$dirty" class="inputInvalidMessage">Le stock doit Ãªtre positif</span>
 			<input type="number" class="form-control" name="stock" x-ng-min="0" x-ng-model="data.product.stock" required> <br>
 						
 			<label for="price">Prix:</label>
-			<span x-ng-show="createProductForm.price.$invalid && createProductForm.price.$dirty" class="inputInvalidMessage">Le prix doit être positif</span>
+			<span x-ng-show="createProductForm.price.$invalid && createProductForm.price.$dirty" class="inputInvalidMessage">Le prix doit Ãªtre positif</span>
 			<input type="number" class="form-control" name="price" x-ng-min="0.1" x-ng-max="1000" step=".01" x-ng-model="data.product.price" required><br>
 			
 			<label for="type">Type</label>
@@ -24,8 +25,8 @@
 			  <!-- <option ng-repeat="category in data.categories" value="{{category.id}}">{{category.name}}</option> -->
 				<option value="Livre">Livre</option>
 				<option value="DVD">DVD</option>
-				<option value="Jeux Vid&eacuteos">Jeux Vid&eacuteos</option>
-				<option value="Musique">Musique</option>
+				<option value="Jeux Vidéos">Jeux Vidéos</option>
+				<option value="CD">Musique</option>
 			</select>
 				
 			<div>
