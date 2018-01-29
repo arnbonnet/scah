@@ -19,9 +19,9 @@
 		     	
 				<form class="navbar-form navbar-left">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Rechercher un produit ..." ng-model="productTitle">
+						<input type="text" class="form-control" placeholder="Rechercher un produit ..." x-ng-model="productTitle">
 						<div class="input-group-btn">
-							<button class="btn btn-default" type="button" ng-click="search(productTitle)">
+							<button class="btn btn-default" type="button" x-ng-click="search(productTitle)">
 								<i class="glyphicon glyphicon-search"></i>
 							</button>
 						</div>
@@ -32,27 +32,27 @@
 				
 				<ul class="nav navbar-nav navbar-right">
 				
-					<li class="dropdown" ng-if="role() == 'user'">
+					<li class="dropdown" x-ng-if="role() == 'user'">
 			        	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon compte <span class="caret"></span></a>
 			          	<ul class="dropdown-menu">
-				            <li><a href="#!/profile/">Mon profil</a></li>
+				            <li><a href="#!/profile">Mon profil</a></li>
 				            <li><a href="#">Mes commandes</a></li>
 				            <li role="separator" class="divider"></li>
-				            <li><a href="#" ng-click="logout()">Déconnexion</a></li>
+				            <li><a href="#" x-ng-click="logout()">D&eacute;connexion</a></li>
 			          	</ul>
 			        </li>
-			        <li class="dropdown" ng-if="role() == 'admin'">
+			        <li class="dropdown" x-ng-if="role() == 'admin'">
 			        	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration <span class="caret"></span></a>
 			          	<ul class="dropdown-menu">
 				            <li><a href="#!/admin_products">Produits</a></li>
 				            <li><a href="#">Commandes</a></li>
 				            <li role="separator" class="divider"></li>
-				            <li><a href="#" ng-click="logout()">Déconnexion</a></li>
+				            <li><a href="#" x-ng-click="logout()">D&eacute;connexion</a></li>
 			          	</ul>
 			        </li>
 
 
-					<li ng-if="role() == ''"><a href="#!/connection">Connexion/Inscription</a></li>
+					<li x-ng-if="role() == ''"><a href="#!/connection">Connexion/Inscription</a></li>
 					<li><a href="#!/cart"><i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i><span class="badge">{{nbItemsInCart()}}</span></a></li>
 				</ul>
         	</div>

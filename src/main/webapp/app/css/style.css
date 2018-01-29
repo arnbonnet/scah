@@ -128,6 +128,9 @@ span.req {
 .createProductForm input.ng-invalid {
 	border-color : red;
 }
+editProductForm input.ng-invalid {
+	border-color : red;
+}
 
 .inputInvalidMessage {
 	color : red;
@@ -187,6 +190,9 @@ span.uploadImage {
     overflow:hidden;
 }
 
+.modal-body {
+	font-size: 16px;
+}
 .orderPrice{
 	vertical-align:middle;
 	display:table-cell;

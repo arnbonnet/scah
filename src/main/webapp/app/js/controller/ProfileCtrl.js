@@ -1,3 +1,6 @@
+/**
+ * Controller de la vue du profile utilisateur 
+ */
 angular.module('app').controller('ProfileCtrl', function($scope, UserService) {
 
 	UserService.checkConnection(['user'], '/connection');
