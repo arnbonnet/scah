@@ -9,14 +9,18 @@
 				</div>
 		
 				<div class="form-group">
+				    <label ><span class="req">* </span> Pr&eacute;nom: </label> 
+				    <input x-ng-model="user.lastname" class="form-control" type="text" placeholder="Votre prénom" required />  
+
 				    <label for="lastname"><span class="req">* </span> Prénom </label> 
 				    <input x-ng-model="user.lastname" class="form-control" type="text" placeholder="Votre prénom" name="firstname" required />
+
 
 				</div>
 				
 				<div class="form-group">
-				    <label> Adresse </label> 
-				    <input x-ng-model="user.adress" class="form-control" type="text" placeholder="Votre adresse postal" required />
+				    <label> Adresse: </label> 
+				    <input x-ng-model="user.address" class="form-control" type="text" placeholder="Votre adresse postal" required /> 
 				</div>
 				
 				<div class="form-group">
@@ -32,7 +36,7 @@
 				</div>
 		
 				<div class="form-group">
-					<label ><span class="req">* </span> Mot de passe </label>
+					<label ><span class="req">* </span> Mot de passe: </label>
 				    <input x-ng-model="user.password" type="password" class="form-control inputpass" placeholder="Votre mot de passe" required />
 				</div>
 		

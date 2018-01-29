@@ -121,12 +121,16 @@ span.req {
 	color: #b30000;
 }
 
-form input.valid {
+.createProductForm.input.valid {
 	border-color : green;
 }
 
-form input.invalid {
+.createProductForm input.ng-invalid {
 	border-color : red;
+}
+
+.inputInvalidMessage {
+	color : red;
 }
 
 /* Hiding the checkbox, but allowing it to be focused */
@@ -135,16 +139,14 @@ form input.invalid {
     opacity: 0;
 }
 
-.badgebox + .badge
-{
+.badgebox + .badge{
     /* Move the check mark away when unchecked */
     text-indent: -999999px;
     /* Makes the badge's width stay the same checked and unchecked */
 	width: 27px;
 }
 
-.badgebox:focus + .badge
-{
+.badgebox:focus + .badge {
     /* Set something to make the badge looks focused */
     /* This really depends on the application, in my case it was: */
     
@@ -163,6 +165,22 @@ form input.invalid {
 	background-color : #e0e0eb;
 }
 
+.img-thumbnail {
+	height: 250px;
+	widht: 300px;
+	margin-top: 30px;
+	margin-right: 50px;
+	margin-left: 50px;
+}
+
+input#fichier.uploadImage {
+	margin-left: 50px;
+}
+
+span.uploadImage {
+	margin-left: 30px;
+}
+
 .test{
     
     height:200px;
@@ -175,3 +193,4 @@ form input.invalid {
 	text-align: center;
 	font-size: 40px;
 }
+

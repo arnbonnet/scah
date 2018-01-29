@@ -41,7 +41,10 @@ public class UserService {
 	public void edit(User user) {
 		userRepository.saveAndFlush(user);
 	}
-	
+
+	public User getById(Long id) {
+		return userRepository.findOne(id);
+	}
 	public List<Order> findAllOfUserWithProducts(Long id){
 		return orderService.findAllOfUserWithProducts(id);
 	}
