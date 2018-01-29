@@ -1,4 +1,4 @@
-angular.module('app').controller('EditProductController', function($scope, $routeParams, ProductService, UserService) {
+angular.module('app').controller('EditProductController', function($scope, $routeParams, ProductService, $location) {
 	
 	var productId = $routeParams.id;
 	console.log(productId);

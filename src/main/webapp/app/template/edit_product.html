@@ -17,7 +17,7 @@
 			<input type="number" class="form-control" name="stock" x-ng-min="0" x-ng-model="data.product.stock"placeholder={{data.product.stock}} required> <br>
 						
 			<label for="price">Prix:</label>
-			<span x-ng-show="editProductForm.price.$invalid && editProductForm.price.$dirty" class="inputInvalidMessage">Le prix doit être positif</span>
+			<span x-ng-show="editProductForm.price.$invalid && editProductForm.price.$dirty" class="inputInvalidMessage">Le prix doit être positif et > à 0</span>
 			<input type="number" class="form-control" name="price" x-ng-min="0.1" x-ng-max="1000" step=".01" x-ng-model="data.product.price" placeholder={{data.product.price}} required><br>
 			
 			<label for="type">Type</label>
@@ -25,7 +25,7 @@
 				<option value="Livre">Livre</option>
 				<option value="DVD">DVD</option>
 				<option value="Jeux vidéo">Jeux Vidéos</option>
-				<option value="Musique">Musique</option>
+				<option value="CD">Musique</option>
 			</select>
 				
 			<div>
