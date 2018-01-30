@@ -35,7 +35,7 @@ app.config(function($routeProvider) {
 	})
 	.when('/adminOrders',{
 		templateUrl:'./app/template/admin_orders.html',
-		controller:'UserOrdersCtrl'
+		controller:'AdminOrdersCtrl'
 	})
 	.when('/profile',{
 		templateUrl:'./app/template/profile.html',
