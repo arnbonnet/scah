@@ -7,6 +7,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.MediaType;
@@ -52,7 +53,6 @@ public class UserController {
 			userService.create(user);
 		} catch (DataIntegrityViolationException e) {
 			createCreationException("Unique", "Cet email est déjà utilisé", user);
-			
 		}
 		
 		return user.getId();

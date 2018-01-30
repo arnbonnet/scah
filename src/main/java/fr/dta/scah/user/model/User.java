@@ -18,6 +18,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import fr.dta.scah.order.model.Order;
 import lombok.Getter;
@@ -57,7 +58,7 @@ public class User implements Serializable {
 	private boolean admin = false;
 	
 	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-	@JsonIgnore
+	@JsonIgnoreProperties("user")
 	private List<Order> orders = new ArrayList<>();
 	
 	public Long getId() {
