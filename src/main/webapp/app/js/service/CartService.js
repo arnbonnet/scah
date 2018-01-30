@@ -1,4 +1,4 @@
-angular.module('app').factory('CartService', function($cookies){
+angular.module('app').factory('CartService', function($cookies, $http){
 
 	function getCart(){
 		var cart = $cookies.getObject('myCart');
@@ -60,11 +60,19 @@ angular.module('app').factory('CartService', function($cookies){
 		return cart;
 	}
 	
+	var createOrderBody = function (cart){
+		var promise = $http.post('/api/orders', cart, {});
+		promise.then(function(response){
+			return response.data;});
+		return promise;
+	}
+	
 	return {
 		addToCart : addToCartBody,
 		getCartNbItem : getCartNbItemBody,
 		getCartItems : getCartItemsBody,
 		deleteAllCart : deleteAllCartBody,
-		deleteOneItem : deleteOneItemBody
+		deleteOneItem : deleteOneItemBody,
+		createOrder : createOrderBody
 	}
 })

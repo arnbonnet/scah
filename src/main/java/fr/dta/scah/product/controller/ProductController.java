@@ -45,8 +45,9 @@ public class ProductController {
 	@RequestMapping(value = "search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> getByCriteria(@RequestParam(required = false) String title,
 			@RequestParam(required = false) String category, @RequestParam(required = false) Integer stock,
-			@RequestParam(required = false) Float price, @RequestParam(required = false) Integer orders) {
-		return productService.findByCriteria(title, category, stock, price, orders);
+			@RequestParam(required = false) Float price, @RequestParam(required = false) Integer orders, 
+			@RequestParam(required = false) Boolean activated) {
+		return productService.findByCriteria(title, category, stock, price, orders, activated);
 	}
 
 	@RequestMapping(value = "search/{id}", method = RequestMethod.GET)

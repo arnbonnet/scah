@@ -1,63 +1,65 @@
 <meta charset="UTF-8">
 <div class="container" style="display: table">
-<h1>Vos commandes</h1>
-<div class="row" ng-repeat="item in orders">
-		<div class="row" > 
-                    <div class="col-xs-12 col-sm-3 col-md-3 order test">
-						<div style="display:table; width: 100%; height: 100%;">
-                    		<div class="ng-binding orderPrice">
-                    			{{item.totalPrice}} € 
-                    		</div>
-                    	</div>
-					</div> 
-                    
-                    <div class="col-xs-12 col-sm-5 col-md-5 ">
-                        <div class="list-group ">
-                            <div class="list-group-item test" >
-                                <div class="row-picture" >
-                                    <a  title="Produit" ng-repeat="image in item.quantityProducts" href="#!/product/{{image.product.id}}">
-                                    
-                                        <img class="circle img-thumbnail img-box" src="app/images/{{image.product.image}}" alt="Produit" style="width:100px;height:120px;">
-                                        
-                                        
-                                    </a>
-                                    
-                                    
-                                    
-                                </div><br>
-                                <div class="row-content">
-                                	
-                                        <i title="Date" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="glyphicon glyphicon-time" ></i> <span> {{item.date}}</span><br>
-                                        <i title="N° commande" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="fa fa-first-order " aria-hidden="true"></i> <span> {{item.orderNumber}}</span><br>
-                                        
-                                     
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                    
-                    <div class="col-xs-12 col-sm-4 col-md-4  ">
-                    	<div class="list-group ">
-                            <div class="list-group-item test">
-                            	<div class="row-content ">
-                            		<i title="Panier" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="fa fa-shopping-basket" style="font-size:2.4rem"></i>
-                            		<ul ng-repeat="image in item.quantityProducts" >
-                                      
-									  <li>{{image.product.title}}</li>
-									</ul> 
-                            	<i title="N° Client" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="fa fa-user " aria-hidden="true"></i><span> {{item.user.firstname}} {{item.user.lastname}}</span><br>
-                            	<i title="Adresse" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="fa fa-home " aria-hidden="true"></i><span> {{item.user.address}}</span><br>
-                            	<i title="Mail" data-placement="left" data-toggle="tooltip" data-trigger="hover" class="fa fa-at " aria-hidden="true"></i><span> {{item.user.email}}</span>
-                            	
-                            	
-                            	</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <hr>
+	<h1>Vos commandes</h1>
+
+	<div class="row" ng-repeat="item in orders">
+	<span class="orderNum">N° commande : {{item.orderNumber}}</span>
+		<div class="row">
+			<div class="col-xs-12 col-sm-3 col-md-3 order ">
+				<div style="display: table; width: 100%; height: 100%;">
+					<div class="ng-binding orderPrice">{{item.totalPrice | currency : '' : 2}} €</div>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-sm-5 col-md-5 ">
+				<div class="list-group ">
+					<div class="list-group-item ">
+
+						<table class="table table-hover table-striped table-condensed table-sm table-responsable">
+							
+							<tbody>
+								<tr ng-repeat="image in item.quantityProducts">
+									<td style="vertical-align:middle"><a title="Produit" href="#!/product/{{image.product.id}}"> <img class="circle img-box" src="app/images/{{image.product.image}}" alt="Produit" style="width: 60px; height: 80px;"></a></td>
+									<td style="vertical-align:middle" >{{image.product.title}}</td>
+									<td style="vertical-align:middle">x {{image.quantity}}</td>
+									<td style="vertical-align:middle"> {{image.product.price | currency : '' : 2}} €</td>
+									
+								</tr>
+								
+							</tbody>
+						</table>
+						
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-sm-4 col-md-4  ">
+				<div class="list-group ">
+					<div class="list-group-item ">
+						<div class="row-content ">
+							<i title="Date" data-placement="left" data-toggle="tooltip"
+								data-trigger="hover" class="glyphicon glyphicon-time"></i> <span>
+								{{item.date}}</span><br> 
+								
+							<i title="N° Client" data-placement="left" data-toggle="tooltip"
+								data-trigger="hover" class="fa fa-user " aria-hidden="true"></i><span>
+								{{item.user.firstname}} {{item.user.lastname}}</span><br> <i
+								title="Adresse" data-placement="left" data-toggle="tooltip"
+								data-trigger="hover" class="fa fa-home " aria-hidden="true"></i><span>
+								{{item.user.address}}</span><br> <i title="Mail"
+								data-placement="left" data-toggle="tooltip" data-trigger="hover"
+								class="fa fa-at " aria-hidden="true"></i><span>
+								{{item.user.email}}</span>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<hr>
 
 	</div>
-
 </div>

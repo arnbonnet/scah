@@ -1,4 +1,5 @@
-<h2>Cr&eacuteation d'un produit</h2>
+<meta charset="UTF-8">
+<h2>Création d'un produit</h2>
 
 <form class="createProductForm" name="createProductForm" novalidate>
 
@@ -21,16 +22,15 @@
 			
 			<label for="type">Type</label>
 			<select class="form-control" id="type" x-ng-model="data.product.category" required>
-			  <!-- <option ng-repeat="category in data.categories" value="{{category.id}}">{{category.name}}</option> -->
 				<option value="Livre">Livre</option>
 				<option value="DVD">DVD</option>
-				<option value="Jeux Vid&eacuteos">Jeux Vid&eacuteos</option>
-				<option value="Musique">Musique</option>
+				<option value="Jeux vidéo">Jeux Vidéos</option>
+				<option value="CD">Musique</option>
 			</select>
 				
 			<div>
 				<label for="activated">Activate:</label>
-				<input type="checkbox" class="" id="activated"  x-ng-model="data.product.activated"> <!-- x-ng-true-value="true" x-ng-false-value="false" -->
+				<input type="checkbox" class="" id="activated" x-ng-model="data.product.activated" >
 			</div>
 		</div>
 			
@@ -48,7 +48,7 @@
 
 	<div class="row" style="margin-top:20px">
 		<div class="col-md-12 text-right " style="margin-bottom:15px"> 
-			<button class="btn btn-primary" x-ng-click="createProduct()" x-ng-disabled="createProductForm.$invalid">Cr&eacuteer</button>
+			<button class="btn btn-primary" x-ng-click="createProduct()" x-ng-disabled="createProductForm.$invalid">Cr&eacute;er</button>
 			<a href="#!/admin_products" id="cancel" name="cancel" class="btn btn-default ">Annuler</a>
 		</div>
 	</div>

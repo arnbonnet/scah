@@ -48,7 +48,7 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 	}
 	
 	@Override
-	public List<Product> findByCriteria(String title, String category, Integer stock, Float price, Integer orders) {
+	public List<Product> findByCriteria(String title, String category, Integer stock, Float price, Integer orders, Boolean activated) {
 		
 		Criteria crit = getSession().createCriteria(Product.class);
 		
@@ -66,6 +66,9 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 		}
 		if (orders != null) {
 			crit.add(Restrictions.eq("orders", orders));
+		}
+		if (activated != null) {
+			crit.add(Restrictions.eq("activated", activated));
 		}
 		
 		List<Product> searchResult = crit.list();

@@ -26,6 +26,7 @@
 	heigth: 400px;
 	width: auto;
 }
+
 .thumbnail h4 {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -121,21 +122,12 @@ span.req {
 	color: #b30000;
 }
 
-.createProductForm.input.valid {
-	border-color : green;
-}
-
-.createProductForm input.ng-invalid {
-	border-color : red;
-}
-
 .inputInvalidMessage {
 	color : red;
 }
 
 /* Hiding the checkbox, but allowing it to be focused */
-.badgebox
-{
+.badgebox {
     opacity: 0;
 }
 
@@ -155,8 +147,7 @@ span.req {
     /* Taking the difference out of the padding */
 }
 
-.badgebox:checked + .badge
-{
+.badgebox:checked + .badge {
     /* Move the check mark back when checked */
 	text-indent: 0;
 }
@@ -181,16 +172,24 @@ span.uploadImage {
 	margin-left: 30px;
 }
 
-.test{
-    
-    height:200px;
-    overflow:hidden;
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
 }
 
+.modal-body {
+	font-size: 16px;
+}
 .orderPrice{
 	vertical-align:middle;
 	display:table-cell;
 	text-align: center;
-	font-size: 40px;
+	font-size: 30px;
 }
 
+.orderNum{
+	display:table-cell;
+	text-align: center;
+	font-size: 30px;
+	color : #0099cc;
+}
