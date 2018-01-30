@@ -16,7 +16,7 @@ angular.module('app').factory('OrdersService', ['$http', function($http) {
 		promiseAddOdert.then(function(response){
 			return response.data;
 		});
-		return promiseAddOder;
+		return promiseAddOdert;
 	}
 	
 	var getOrdersByIdBody = function(){
