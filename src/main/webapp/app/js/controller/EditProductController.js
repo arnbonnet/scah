@@ -1,7 +1,9 @@
-angular.module('app').controller('EditProductController', function($scope, $routeParams, ProductService, $location) {
+angular.module('app').controller('EditProductController', function($scope, $routeParams, ProductService, $location, UserService) {
 	
 	var productId = $routeParams.id;
-	console.log(productId);
+	
+	UserService.checkConnection(['admin'], '/connection');
+	
 	ProductService.getOneProduct(productId).then(function(product) {
 		$scope.data = {
 			product : product

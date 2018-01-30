@@ -2,13 +2,15 @@
  * Controller de la vue recherche produit de l'admin, avec affichage de tous les produits sous la forme de tableaux
  */
 
-app.controller('ArrayProductsAdminController', function($scope, ProductService, $uibModal, $location){
+app.controller('ArrayProductsAdminController', function($scope, ProductService, $uibModal, $location, UserService){
 	
 	$scope.advancedResearch = false;
 	$scope.activate = false;
 	$scope.ListProductData = [];
 	$scope.check = [];
 	$scope.switche;
+	
+	UserService.checkConnection(['admin'], '/');
 	
 	$scope.ListProduct = function() {
 		return $scope.ListProductData;

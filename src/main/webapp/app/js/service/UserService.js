@@ -131,9 +131,6 @@ angular.module('app').factory('UserService', ['$http', '$location', '$injector' 
 			// je ne suis pas connecté avec le bon role, donc redirection vers la page de connexion
 			$location.path(redirectOnBadRole);
 		}
-		else {
-			$location.path('/connection');
-		}
 	}
 	
 	return {
