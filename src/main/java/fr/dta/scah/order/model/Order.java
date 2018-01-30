@@ -59,8 +59,8 @@ public class Order implements Serializable {
 	@ManyToOne
 	private User user;
 	
-	@OneToMany(mappedBy="order", fetch=FetchType.LAZY)
-	@JsonIgnoreProperties({"order"})
+	@OneToMany(mappedBy="order", fetch=FetchType.EAGER)
+	@JsonIgnoreProperties("order")
 	private List<ProductQuantity> quantityProducts = new ArrayList<>();
 
 	public Long getId() {

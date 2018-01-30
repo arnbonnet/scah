@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 	<div class="col-md-10">
-		<form novalidate>
+		<form name="regForm" novalidate>
 			<fieldset>
 				<legend class="text-center">S'inscrire</legend>
 				<div class="form-group"> 	 
@@ -15,19 +15,23 @@
 				</div>
 				
 				<div class="form-group">
-				    <label> Adresse: </label> 
-				    <input x-ng-model="user.address" class="form-control" type="text" placeholder="Votre adresse postal" required /> 
+				    <label> Adresse: </label>
+				    <input x-ng-model="user.address" class="form-control" type="text" placeholder="Votre adresse postal" /> 
 				</div>
 				
 				<div class="form-group">
 		       		<label>Numéro de téléphone </label>
-		            <input x-ng-model="user.phone" type="text" class="form-control phone" placeholder="Votre numéro de téléphone" required />
+		            <input x-ng-model="user.phone" type="text" class="form-control phone" placeholder="Votre numéro de téléphone" />
 					<span x-ng-if="creationFailed('phone')" class="errorMessage">{{error('phone')}}</span>
 				</div>
 				
 				<div class="form-group">
 				    <label ><span class="req">* </span> Adresse email </label> 
-				    <input x-ng-model="user.email" class="form-control" type="email" placeholder="Votre email" required />
+				    <input x-ng-model="user.email" class="form-control" type="email" placeholder="Votre email" name="regEmail" required />
+				    <div data-ng-show="regForm.regEmail.$dirty && regForm.regEmail.$invalid">
+						<span data-ng-show="regForm.regEmail.$error.required" class="errorMessage">Veuillez renseigner un email</span>
+						<span data-ng-show="regForm.regEmail.$error.email" class="errorMessage">Cet email n'est pas valide</span>
+					</div>
 					<span x-ng-if="creationFailed('email')" class="errorMessage">{{error('email')}}</span>
 				</div>
 		
@@ -37,7 +41,7 @@
 				</div>
 		
 				<div class="form-group">
-				    <button class="btn btn-primary" type="submit" x-ng-click="create(user)" data-ng-disabled="form.$invalid">S'inscrire</button>
+				    <button class="btn btn-primary" type="submit" x-ng-click="create(user)" data-ng-disabled="regForm.$invalid">S'inscrire</button>
 				</div>
 			
 			</fieldset>
