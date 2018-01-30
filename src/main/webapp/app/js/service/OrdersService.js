@@ -22,7 +22,7 @@ angular.module('app').factory('OrdersService', ['$http', function($http) {
 	
 		return {
 			getAllOrders : getAllOrdersBody,
-			addOrder : addOrderBody,
+			addOrder : addOrderBody
 			
 		}
 }]);

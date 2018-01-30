@@ -40,7 +40,7 @@ angular.module('app').controller('CartCtrl', function($scope, CartService, Order
 	//valider le panier : créer une commande
 	$scope.create = function (){
 		if (UserService.getRole() != ''){
-			var order = {'date':'2018-31-01', 'orderNumber':Math.round(Math.random(999999)*100000), 'totalPrice':$scope.totalPrice() }
+			var order = {'date':'2018-01-31', 'orderNumber':Math.round(Math.random(999999)*100000), 'totalPrice':$scope.totalPrice() }
 			var quantityProduct = [];
 			for (var item in $scope.cart){
 				quantityProduct.push({'product' :{'id':$scope.cart[item].item.id}, 'quantity' :$scope.cart[item].nb } );
@@ -51,7 +51,7 @@ angular.module('app').controller('CartCtrl', function($scope, CartService, Order
 			
 			return OrdersService.addOrder(order).then(function(response){
 				console.log('order creation success');
-				//$location.path('/userOrders');
+				$location.path('/userOrders');
 				return response.data;
 			}, function(response){
 				console.log('error creating order' + response.data)
