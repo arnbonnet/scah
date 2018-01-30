@@ -29,7 +29,7 @@ app.config(function($routeProvider) {
 		templateUrl:'./app/template/cart.html',
 		controller:'CartCtrl'
 	})
-	.when('/orders',{
+	.when('/userOrders',{
 		templateUrl:'./app/template/user_orders.html',
 		controller:'UserOrdersCtrl'
 	})

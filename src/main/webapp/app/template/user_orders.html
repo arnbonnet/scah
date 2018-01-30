@@ -2,7 +2,7 @@
 <div class="container" style="display: table">
 	<h1>Vos commandes</h1>
 
-	<div class="row" ng-repeat="item in orders">
+	<div class="row" ng-repeat="item in orders()">
 	<span class="orderNum">N° commande : {{item.orderNumber}}</span>
 	
 		<div class="row">
@@ -45,13 +45,13 @@
 								
 							<i title="N° Client" data-placement="left" data-toggle="tooltip"
 								data-trigger="hover" class="fa fa-user " aria-hidden="true"></i><span>
-								{{item.user.firstname}} {{item.user.lastname}}</span><br> <i
+								{{user.firstname}} {{user.lastname}}</span><br> <i
 								title="Adresse" data-placement="left" data-toggle="tooltip"
 								data-trigger="hover" class="fa fa-home " aria-hidden="true"></i><span>
-								{{item.user.address}}</span><br> <i title="Mail"
+								{{user.address}}</span><br> <i title="Mail"
 								data-placement="left" data-toggle="tooltip" data-trigger="hover"
 								class="fa fa-at " aria-hidden="true"></i><span>
-								{{item.user.email}}</span>
+								{{user.email}}</span>
 
 
 						</div>

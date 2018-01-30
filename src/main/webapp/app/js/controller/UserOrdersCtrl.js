@@ -2,7 +2,7 @@
  * Controller de la vue user_orders (commande de l'utilisateur);
  */
 
-angular.module('app').controller('UserOrdersCtrl', function($scope, CartService, OrdersService) {
+angular.module('app').controller('UserOrdersCtrl', function($scope, CartService, OrdersService, UserService) {
 	
 	
 	
@@ -11,13 +11,11 @@ angular.module('app').controller('UserOrdersCtrl', function($scope, CartService,
 	});
 	
 	
-	OrdersService.getAllOrders().then(function(data){
-		$scope.orders = data;
-		console.log('orsrers ', $scope.orders);
-		
-		
-	});
-	
+	$scope.orders = function(){
+		$scope.user = UserService.getUser();
+		console.log($scope.user);
+		return $scope.user.orders;
+	}
 	
 });
 

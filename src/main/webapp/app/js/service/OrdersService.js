@@ -12,6 +12,7 @@ angular.module('app').factory('OrdersService', ['$http', function($http) {
 	}
 	
 	var addOrderBody = function(order){
+		console.log('service', order);
 		var promiseAddOdert = $http.post('/api/orders', order, {});
 		promiseAddOdert.then(function(response){
 			return response.data;
@@ -19,21 +20,9 @@ angular.module('app').factory('OrdersService', ['$http', function($http) {
 		return promiseAddOdert;
 	}
 	
-	var getOrdersByIdBody = function(){
-		var promiseOrderbyId = $http.get('/api/users/orders');
-		promiseOrderbyId.then(function(response){
-			console.log('response.data order by id', response.data);
-			return response.data;
-		});
-		return promiseOrderbyId;
-		
-	}
-	
-		
-
 		return {
 			getAllOrders : getAllOrdersBody,
 			addOrder : addOrderBody,
-			getOrdersById : getOrdersByIdBody
+			
 		}
 }]);
