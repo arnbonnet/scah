@@ -10,7 +10,11 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 	$scope.check = [];
 	$scope.switche;
 	
-	UserService.checkConnection(['admin'], '/');
+	UserService.getSession().then(function(){
+		UserService.checkConnection(['admin'], '/');
+	});
+	
+	
 	
 	$scope.ListProduct = function() {
 		return $scope.ListProductData;
@@ -61,7 +65,7 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 	    			initData(data);
 				});
 			}else{
-				window.alert("Inpossible de supprimer le produit car il est présent dans une commande!");
+				window.alert("Impossible de supprimer le produit car il est présent dans une commande!");
 			}
 		}, function(response){
 			console.log('remove error');
@@ -102,4 +106,11 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 			console.log("error status change product" + response.data)
 		});
     }
+    
+    $scope.search = function(title) {
+    	ProductService.getProductsByTitle(title).then(function(response) {
+    		$scope.ListProductData = response;
+    	});
+    };
+    
 });

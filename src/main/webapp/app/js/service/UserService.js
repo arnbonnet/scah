@@ -135,13 +135,16 @@ angular.module('app').factory('UserService', ['$http', '$location', '$injector' 
 	
 	var getSessionBody = function() {
 		var promiseSession = $http.get('api/session').then(function(response) {
+			console.log('Ici');
 			if(response.data.length != 0) {
+				console.log('Là');
 				role = response.data.authorities[0].authority.toLowerCase();
-				$http.get('api/users/searchByEmail', {params:{email:response.data.username}}).then(function(response) {
+				return $http.get('api/users/searchByEmail', {params:{email:response.data.username}}).then(function(response) {
 					user = response.data;
 				});
 			}
 		});
+		return promiseSession;
 	};
 	
 	return {

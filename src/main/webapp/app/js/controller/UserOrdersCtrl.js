@@ -15,7 +15,6 @@ angular.module('app').controller('UserOrdersCtrl', function($scope, CartService,
 	
 	$scope.orders = function(){
 		$scope.user = UserService.getUser();
-		console.log($scope.user);
 		return $scope.user.orders;
 	}
 	
