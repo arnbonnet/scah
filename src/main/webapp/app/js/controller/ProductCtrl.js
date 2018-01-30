@@ -1,7 +1,7 @@
 angular.module('app').controller('ProductCtrl', function($scope, ProductService, $location, $routeParams) {
 	
 	$scope.data = {
-		product : {},
+		product : {}
 	};
 	
 	$scope.createProduct = function(){

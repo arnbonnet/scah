@@ -30,7 +30,7 @@
 				
 			<div>
 				<label for="activated">Activate:</label>
-				<input type="checkbox" class="" id="activated" x-ng-model="data.product.activated" x-ng-bind="data.product.activated">
+				<input type="checkbox" class="" id="activated"  x-ng-model="data.product.activated" x-ng-true-value="true" x-ng-false-value="false">
 			</div>
 		</div>
 			
@@ -43,13 +43,16 @@
 				</form>
 				
 			</div>
+
+
+
 		</div>
 	</div>
 
 	<div class="row" style="margin-top:20px">
 		<div class="col-md-12 text-right " style="margin-bottom:15px"> 
-			<button class="btn btn-primary" x-ng-click="editProduct()" x-ng-disabled="editProductForm.$invalid">Modifier</button>
-			<a href="#!/admin_products" id="cancel" name="cancel" class="btn btn-default ">Annuler</a>
+			<button href="#!/admin_products" class="btn btn-primary col-md-3 col-md-offset-6" x-ng-click="editProduct()" x-ng-disabled="ProductForm.$invalid || isUnchanged(product)">Modifier</button>
+			<a href="#!/admin_products" id="cancel" name="cancel" class="btn btn-default col-md-3">Cancel</a>
 		</div>
 	</div>
 

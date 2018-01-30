@@ -11,34 +11,13 @@ angular.module('app').controller('UserOrdersCtrl', function($scope, CartService,
 	});
 	
 	
-	OrdersService.getAllOrders().then(function(data){
+	OrdersService.getOrdersById().then(function(data){
 		$scope.orders = data;
-		console.log($scope.orders);
-		console.log('scope', $scope.orders.quantityProducts);
+		console.log('orsrers ', $scope.orders);
+		
 		
 	});
 	
 	
 });
 
-
-/*{
-"date":"2018-01-26", 
-"orderNumber" : "123", 
-"totalPrice" : "12.52", 
-"quantityProducts" :[{
-"product":
-{"id":"152"},
-"quantity":"5"}]
-}
-
-{
-"date":"2018-01-26", 
-"orderNumber" : "459", 
-"totalPrice" : "78.5", 
-"quantityProducts" :[{
-"product":
-{"id":"153"},
-"quantity":"2"}]
-}
-*/

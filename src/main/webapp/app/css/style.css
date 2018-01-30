@@ -193,3 +193,11 @@ span.uploadImage {
 	font-size: 30px;
 	color : #0099cc;
 }
+
+.cartVertCenter {
+	vertical-align:middle;
+}
+
+.addpaddingTop {
+	margin-top:20px;
+}
