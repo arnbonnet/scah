@@ -39,7 +39,7 @@ public class UserService {
 	}
 	
 	public void edit(User user) {
-		userRepository.saveAndFlush(user);
+		userRepository.save(user);
 	}
 
 	public User getById(Long id) {

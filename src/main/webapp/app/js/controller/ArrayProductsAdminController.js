@@ -10,7 +10,11 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 	$scope.check = [];
 	$scope.switche;
 	
-	UserService.checkConnection(['admin'], '/');
+	UserService.getSession().then(function(){
+		UserService.checkConnection(['admin'], '/');
+	});
+	
+	
 	
 	$scope.ListProduct = function() {
 		return $scope.ListProductData;

@@ -22,6 +22,8 @@
 	cursor: pointer;
 }
 
+a:
+
 .thumbnail {
 	heigth: 400px;
 	width: auto;
@@ -197,4 +199,8 @@ body .table > tbody > tr > td.cartVertCenter {
 
 .addpaddingTop {
 	margin-top: 20px;
+}
+
+.trash {
+	color : #cc0000;	
 }
