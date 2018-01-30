@@ -57,6 +57,7 @@ public class Order implements Serializable {
 	private String orderNumber;
 
 	@ManyToOne
+	@JsonIgnoreProperties("order")
 	private User user;
 	
 	@OneToMany(mappedBy="order", fetch=FetchType.EAGER)
