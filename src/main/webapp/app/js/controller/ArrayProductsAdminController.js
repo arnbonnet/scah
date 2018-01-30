@@ -2,7 +2,7 @@
  * Controller de la vue recherche produit de l'admin, avec affichage de tous les produits sous la forme de tableaux
  */
 
-app.controller('ArrayProductsAdminController', function($scope, ProductService, $uibModal){
+app.controller('ArrayProductsAdminController', function($scope, ProductService, $uibModal, $location){
 	
 	$scope.advancedResearch = false;
 	$scope.activate = false;
@@ -17,6 +17,10 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 	// fonction qui affiche la recherche avancée
     $scope.showAdvancedResearch = function() {
         $scope.advancedResearch = !$scope.advancedResearch;
+    }
+    
+    $scope.goPageProductCreation = function() {
+    	$location.path('/createProduct');
     }
     
     //récupère l'ensemble des produits via la bdd
