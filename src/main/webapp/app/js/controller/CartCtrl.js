@@ -50,7 +50,7 @@ angular.module('app').controller('CartCtrl', function($scope, CartService, Order
 			console.log(order);
 			
 			
-			return CartService.createOrder(order).then(function(response){
+			return OrdersService.addOrder(order).then(function(response){
 				console.log('order creation success');
 				$location.path('/orders');
 				return response.data;
