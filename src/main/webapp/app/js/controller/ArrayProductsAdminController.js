@@ -99,4 +99,11 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
 			console.log("error status change product" + response.data)
 		});
     }
+    
+    $scope.search = function(title) {
+    	ProductService.getProductsByTitle(title).then(function(response) {
+    		$scope.ListProductData = response;
+    	});
+    };
+    
 });

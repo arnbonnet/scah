@@ -94,7 +94,6 @@ angular.module('app').factory('ProductService', ['$http', '$location', 'UserServ
         formdata.append('file', file);
 		var promiseUploadFile = $http.post('/api/products/upload', formdata,  {headers: {'Content-Type': undefined}});
 		promiseUploadFile.then(function(response){
-			console.log(response);
 			return response.data;
 		}, function(response){
 			console.log('ERR', response);
