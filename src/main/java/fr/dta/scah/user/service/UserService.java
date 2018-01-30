@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -46,5 +47,11 @@ public class UserService {
 	}
 	public List<Order> findAllOfUserWithProducts(Long id){
 		return orderService.findAllOfUserWithProducts(id);
+	}
+	
+	public User getByEmail(String email) {
+		User user = userRepository.findByEmail(email);
+		Hibernate.initialize(user.getOrders());
+		return user;
 	}
 }

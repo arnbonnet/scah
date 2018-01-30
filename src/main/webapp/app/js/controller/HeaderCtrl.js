@@ -17,4 +17,6 @@ angular.module('app').controller('HeaderCtrl', function($scope, $location, UserS
 		UserService.logout();
 	};
 	
+	UserService.getSession();
+	
 });
