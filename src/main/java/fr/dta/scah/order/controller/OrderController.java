@@ -30,21 +30,9 @@ public class OrderController {
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Long createOrder(@RequestBody Order order) {
-//		System.out.println("WebService création order : " + order);
 		order.setUser(securityService.getConnectedUser());
 		return orderService.create(order).getId();
 	}
-	
-//	@RequestMapping(value = "search/{id}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
-//	public Order getById(@PathVariable Long id) {
-//		return orderService.getById(id);
-//	}
-
-//	
-//	@RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-//	public void editOrder(@RequestBody Order order) {
-//		//orderService.edit(order);
-//	}
 	
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE ) 
 	public List<Order> getOrders() {

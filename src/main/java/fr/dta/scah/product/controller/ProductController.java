@@ -56,10 +56,16 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public void remove(@PathVariable Long id) {
-		productService.remove(id);
+	public boolean remove(@PathVariable Long id) {
+		return productService.remove(id);
 	}
 
+	
+	@RequestMapping(value="delete", method = RequestMethod.POST)
+	public void removeMultiple(@RequestBody List<Long> ids) {
+		productService.removeMultiple(ids);
+	}
+	
 	//gestion de l'upload des images
 	@RequestMapping(value="upload", method = RequestMethod.POST)
     public String handleFileUpload(@RequestParam MultipartFile file) {

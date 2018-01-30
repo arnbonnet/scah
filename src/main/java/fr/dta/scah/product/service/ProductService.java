@@ -3,6 +3,7 @@ package fr.dta.scah.product.service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -18,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import fr.dta.scah.AbstractRepository;
 import fr.dta.scah.exception.StorageException;
+import fr.dta.scah.order.model.ProductQuantity;
+import fr.dta.scah.order.repository.ProductQuantityRepository;
 import fr.dta.scah.product.model.Product;
 import fr.dta.scah.product.repository.ProductRepository;
 import fr.dta.scah.product.repository.ProductRepositoryCustom;
@@ -27,6 +30,9 @@ import fr.dta.scah.product.repository.ProductRepositoryCustom;
 public class ProductService extends AbstractRepository<Product> implements ProductRepositoryCustom {
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Autowired
+	ProductQuantityRepository productQuantityRepository;
 	
 	@Autowired
 	ProductRepository productRepository;
@@ -76,8 +82,25 @@ public class ProductService extends AbstractRepository<Product> implements Produ
 		return searchResult;
 	}
 
-	public void remove(Long id) {
-		productRepository.delete(id);
+	public boolean remove(Long id) {
+		
+		List<ProductQuantity> pdql=new ArrayList<>();
+		
+		pdql=productQuantityRepository.findByProductId(id);
+		
+		System.out.println(pdql);
+		
+		if(pdql.isEmpty()) {
+			productRepository.delete(id);
+			return true;
+		}else {
+			System.out.println("Can't delete product because exciste in order!");
+			return false;
+		}
+	}
+	
+	public void removeMultiple(List<Long> ids) {
+		
 	}
 	
 	public boolean store(MultipartFile file) {

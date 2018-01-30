@@ -55,11 +55,14 @@ app.controller('ArrayProductsAdminController', function($scope, ProductService, 
     function remove(id){
     	ProductService.removeProduct(id)
 		.then(function(response){
-			console.log('remove success');
-			ProductService.reload().then(function(data) {
-    			initData(data);
-			});
-			return response;
+			if(response.data==true){
+				console.log('remove success');
+				ProductService.reload().then(function(data) {
+	    			initData(data);
+				});
+			}else{
+				window.alert("Inpossible de supprimer le produit car il est présent dans une commande!");
+			}
 		}, function(response){
 			console.log('remove error');
 		});
