@@ -158,10 +158,7 @@ span.req {
 
 .img-thumbnail {
 	height: 250px;
-	widht: 300px;
-	margin-top: 30px;
-	margin-right: 50px;
-	margin-left: 50px;
+	width: 300px;
 }
 
 input#fichier.uploadImage {
@@ -181,23 +178,23 @@ span.uploadImage {
 	font-size: 16px;
 }
 .orderPrice{
-	vertical-align:middle;
-	display:table-cell;
+	vertical-align: middle;
+	display: table-cell;
 	text-align: center;
 	font-size: 30px;
 }
 
 .orderNum{
-	display:table-cell;
+	display: table-cell;
 	text-align: center;
 	font-size: 30px;
 	color : #0099cc;
 }
 
-.cartVertCenter {
-	vertical-align:middle;
+body .table > tbody > tr > td.cartVertCenter {
+	vertical-align: middle;
 }
 
 .addpaddingTop {
-	margin-top:20px;
+	margin-top: 20px;
 }
