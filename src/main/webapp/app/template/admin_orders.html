@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 
+<!-- Recherche commande -->
 <div class="row" >
 	<h2>Gestion de commandes</h2>
 	
@@ -19,11 +20,12 @@
 	<button type="button" class="btn" ng-click="showAdvancedResearch()">Recherche avancée</button>
 </div>
 
-
+<!-- Tableau affichage commandes -->
 <div class="container" style="display: table">
 	
 
-	<div class="row" ng-repeat="item in orders">
+	<div class="row" ng-repeat="item in admin">
+	
 	<span class="orderNum">N° commande : {{item.orderNumber}}</span>
 	
 		<div class="row">
