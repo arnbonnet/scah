@@ -48,6 +48,6 @@ public class OrderController {
 	
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE ) 
 	public List<Order> getOrders() {
-		return orderService.findAllWithProducts();
+		return orderService.findAll();
 	}
  }
