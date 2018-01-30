@@ -1,4 +1,6 @@
 angular.module('app').controller('HeaderCtrl', function($scope, $location, UserService, ProductService, CartService) {
+
+	UserService.getSession();
 	
 	$scope.search = function(title) {
 		ProductService.setSearch(title)
@@ -16,7 +18,5 @@ angular.module('app').controller('HeaderCtrl', function($scope, $location, UserS
 	$scope.logout = function() {
 		UserService.logout();
 	};
-	
-	UserService.getSession();
 	
 });
