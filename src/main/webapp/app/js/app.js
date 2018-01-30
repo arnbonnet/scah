@@ -7,7 +7,7 @@ app.config(function($routeProvider) {
 	})
 	.when('/createProduct', {
 		templateUrl:'./app/template/create_product.html',
-		controller:'ProductCtrl'
+		controller:'AdminProductCtrl'
 	})
 	.when('/editProduct/:id', {
 		templateUrl:'./app/template/edit_product.html',
