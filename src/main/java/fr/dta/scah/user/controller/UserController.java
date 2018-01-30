@@ -17,6 +17,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.dta.scah.exception.NotUniqueCreationException;
@@ -82,10 +83,15 @@ public class UserController {
 		return user.getId();
 	}
 
-	@RequestMapping(value = "/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE ) 
+	@RequestMapping(value = "/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE) 
 	public List<Order> getUserOrders() {
 		User user = securityService.getConnectedUser();
 		return user!=null ? userService.findAllOfUserWithProducts(user.getId()): Collections.<Order>emptyList();
+	}
+	
+	@RequestMapping(value="searchByEmail", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public User getByEmail(@RequestParam String email) {
+		return userService.getByEmail(email);
 	}
 
 }

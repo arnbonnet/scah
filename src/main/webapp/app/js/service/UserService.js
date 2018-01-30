@@ -133,6 +133,17 @@ angular.module('app').factory('UserService', ['$http', '$location', '$injector' 
 		}
 	}
 	
+	var getSessionBody = function() {
+		var promiseSession = $http.get('api/session').then(function(response) {
+			if(response.data.length != 0) {
+				role = response.data.authorities[0].authority.toLowerCase();
+				$http.get('api/users/searchByEmail', {params:{email:response.data.username}}).then(function(response) {
+					user = response.data;
+				});
+			}
+		});
+	};
+	
 	return {
 		getRole : getRoleBody,
 		login : loginBody,
@@ -143,6 +154,7 @@ angular.module('app').factory('UserService', ['$http', '$location', '$injector' 
 		checkConnection : checkConnectionBody,
 		getUser : getUserBody,
 		isCreationFailed : isCreationFailedBody,
-		getError : getErrorBody
+		getError : getErrorBody,
+		getSession : getSessionBody,
 	}
 }]);
