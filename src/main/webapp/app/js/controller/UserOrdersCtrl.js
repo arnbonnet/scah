@@ -11,7 +11,7 @@ angular.module('app').controller('UserOrdersCtrl', function($scope, CartService,
 	});
 	
 	
-	OrdersService.getOrdersById().then(function(data){
+	OrdersService.getAllOrders().then(function(data){
 		$scope.orders = data;
 		console.log('orsrers ', $scope.orders);
 		

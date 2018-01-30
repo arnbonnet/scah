@@ -57,6 +57,7 @@ angular.module('app').controller('CartCtrl', function($scope, CartService, Order
 			}, function(response){
 				console.log('error creating order' + response.data)
 			});
+			
 		}
 		else {
 			console.log('non connecte');

@@ -12,7 +12,7 @@ angular.module('app').factory('OrdersService', ['$http', function($http) {
 	}
 	
 	var addOrderBody = function(order){
-		var promiseAddOdert = $http.post('/api/products', order, {});
+		var promiseAddOdert = $http.post('/api/orders', order, {});
 		promiseAddOdert.then(function(response){
 			return response.data;
 		});

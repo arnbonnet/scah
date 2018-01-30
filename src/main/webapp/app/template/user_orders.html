@@ -20,10 +20,10 @@
 							
 							<tbody>
 								<tr ng-repeat="image in item.quantityProducts">
-									<td style="vertical-align:middle"><a title="Produit" href="#!/product/{{image.product.id}}"> <img class="circle img-box" src="app/images/{{image.product.image}}" alt="Produit" style="width: 60px; height: 80px;"></a></td>
-									<td style="vertical-align:middle" >{{image.product.title}}</td>
-									<td style="vertical-align:middle">x {{image.quantity}}</td>
-									<td style="vertical-align:middle"> {{image.product.price | currency : '' : 2}} €</td>
+									<td class="cartVertCenter"><a title="Produit" href="#!/product/{{image.product.id}}"> <img class="circle img-box" src="app/images/{{image.product.image}}" alt="Produit" style="width: 60px; height: 80px;"></a></td>
+									<td class="cartVertCenter" >{{image.product.title}}</td>
+									<td class="cartVertCenter">x {{image.quantity}}</td>
+									<td class="cartVertCenter"> {{image.product.price | currency : '' : 2}} €</td>
 									
 								</tr>
 								
