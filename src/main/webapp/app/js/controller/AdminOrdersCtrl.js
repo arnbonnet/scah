@@ -9,7 +9,13 @@ angular.module('app').controller('AdminOrdersCtrl', function($scope, OrdersServi
 	    $('[data-toggle="tooltip"]').tooltip();
 	});
 	
-	$scope.orders = OrdersService.getAllOrders();
-	console.log($scope.orders);
+	
+	OrdersService.getAllOrders().then(function(response){
+		$scope.admin = response;
+	});
+		
+	
+		
+		
 });
 

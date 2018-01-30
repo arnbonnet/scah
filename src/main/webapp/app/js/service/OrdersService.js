@@ -4,15 +4,15 @@
 
 angular.module('app').factory('OrdersService', ['$http', function($http) {
 	
+	
+	
 	var getAllOrdersBody = function(){
 		var promise = $http.get('/api/orders');
-		promise.then(function(response) {
-			console.log('response.data', response.data);
+		return promise.then(function(response) {
+			console.log('service', response);
 			return response.data;
-		}, function(response){
-			console.log ('erreur dans le service', response.data);
 		});
-		return promise;
+		
 	}
 	
 	var addOrderBody = function(order){
@@ -24,9 +24,12 @@ angular.module('app').factory('OrdersService', ['$http', function($http) {
 		return promiseAddOdert;
 	}
 	
+	
+	
 		return {
 			getAllOrders : getAllOrdersBody,
 			addOrder : addOrderBody
+			
 			
 		}
 }]);
