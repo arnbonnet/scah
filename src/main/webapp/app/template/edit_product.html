@@ -26,7 +26,8 @@
 			
 			<div>
 				<label for="activated">Activate:</label>
-				<input type="checkbox" class="" id="activated"  x-ng-model="product.activated" x-ng-bind="product.activated">
+				<input type="checkbox" class="" id="activated"  x-ng-model="data.product.activated" x-ng-true-value="true" x-ng-false-value="false">
+				
 			</div>
 				<br />
 			
@@ -39,8 +40,8 @@
 				<span ng-show="ProductForm.price.$error">This is not a valid price.</span>
 			</div>
 			
-			<button class="btn btn-primary col-md-3 col-md-offset-6" x-ng-click="editProduct()" x-ng-disabled="ProductForm.$invalid || isUnchanged(product)">Modifier</button>
-			<a href="#!" id="cancel" name="cancel" class="btn btn-default col-md-3">Cancel</a>
+			<button href="#!/admin_products" class="btn btn-primary col-md-3 col-md-offset-6" x-ng-click="editProduct()" x-ng-disabled="ProductForm.$invalid || isUnchanged(product)">Modifier</button>
+			<a href="#!/admin_products" id="cancel" name="cancel" class="btn btn-default col-md-3">Cancel</a>
 		</form>
 	</div>
 </div>
