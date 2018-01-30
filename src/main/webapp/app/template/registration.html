@@ -5,16 +5,12 @@
 				<legend class="text-center">S'inscrire</legend>
 				<div class="form-group"> 	 
 				    <label  ><span class="req">* </span> Nom </label>
-				    <input x-ng-model="user.firstname" class="form-control" type="text" placeholder="Votre nom" name="lastname" required />
+				    <input x-ng-model="user.lastname" class="form-control" type="text" placeholder="Votre nom" name="lastname" required />
 				</div>
 		
 				<div class="form-group">
-				    <label ><span class="req">* </span> Pr&eacute;nom: </label> 
-				    <input x-ng-model="user.lastname" class="form-control" type="text" placeholder="Votre prénom" required />  
-
 				    <label for="lastname"><span class="req">* </span> Prénom </label> 
-				    <input x-ng-model="user.lastname" class="form-control" type="text" placeholder="Votre prénom" name="firstname" required />
-
+				    <input x-ng-model="user.firstname" class="form-control" type="text" placeholder="Votre prénom" name="firstname" required />
 
 				</div>
 				
@@ -24,7 +20,7 @@
 				</div>
 				
 				<div class="form-group">
-		       		<label>Num&eacute;ro de t&eacute;l&eacute;phone </label>
+		       		<label>Numéro de téléphone </label>
 		            <input x-ng-model="user.phone" type="text" class="form-control phone" placeholder="Votre numéro de téléphone" required />
 					<span x-ng-if="creationFailed('phone')" class="errorMessage">{{error('phone')}}</span>
 				</div>
