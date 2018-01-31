@@ -35,11 +35,11 @@
 		</div>
 			
 		<div class="col-md-6 col-middle">	
-			<div>
+			<div class="uploadImage">
 				<form method="POST" enctype="multipart/form-data" action="/">	
-					<span class ="uploadImage">Le poids et le format maximal: 512 Mo / 300cm x 300cm </span>
+					<span>Le poids et le format maximal: 512 Mo / 300cm x 300cm </span>
 					<img id="img" src="#" alt="votre image" class="img-thumbnail" width="304" height="236"/>  
-					<input type='file' id="fichier" name="fichier" x-ng-files="test($files)" class="uploadImage" placeholder={{data.product.image}}/>
+					<input type='file' id="fichier" name="fichier" x-ng-files="test($files)" placeholder={{data.product.image}}/>
 				</form>
 				
 			</div>
