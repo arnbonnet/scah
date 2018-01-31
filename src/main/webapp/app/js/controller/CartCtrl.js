@@ -47,6 +47,7 @@ angular.module('app').controller('CartCtrl', function($scope, CartService, Order
 			}
 			order.quantityProducts = quantityProduct;
 			console.log(order);
+			$scope.deleteCart();
 			
 			
 			return OrdersService.addOrder(order).then(function(response){
