@@ -1,6 +1,8 @@
 angular.module('app').controller('AdminProductCtrl', function($scope, $location, ProductService, UserService) {
 	
-	UserService.checkConnection(['admin'], '/connection');
+	UserService.getSession().then(function(){
+		UserService.checkConnection(['admin'], '/connection');
+	});
 	
 	$scope.data = {
 			product : {}

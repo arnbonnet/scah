@@ -1,7 +1,10 @@
-angular.module('app').controller('ProductCtrl', function($scope, ProductService) {
+angular.module('app').controller('ProductCtrl', function($scope, ProductService, UserService) {
 	
-	$scope.ListProducts = function() {
-		return ProductService.getProducts();
-	};
+	UserService.getSession().then(function(){
+		
+		$scope.ListProducts = function() {
+			return ProductService.getProducts();
+		};
 
+	});
 });

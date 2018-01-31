@@ -11,7 +11,7 @@ angular.module('app').controller('AdminOrdersCtrl', function($scope, OrdersServi
 		});
 			
 		OrdersService.getAllOrders().then(function(response){
-			$scope.admin = response;
+			$scope.admin = response.reverse();
 		});
 		
 	});
